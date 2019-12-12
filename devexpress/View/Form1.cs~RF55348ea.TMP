@@ -1,0 +1,178 @@
+﻿using devexpress.Model;
+using devexpress.View;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace devexpress
+{
+    public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
+    {
+        QLKSDbContext db = new QLKSDbContext();
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Form form = IsActive(typeof(Sodophong));
+            if (form == null)
+            {
+                Sodophong tt = new Sodophong();
+                tt.MdiParent = this;
+                tt.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+           
+
+        }
+
+        private void btnRoom_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(Thongtin));
+            if (form == null)
+            {
+                Thongtin tt = new Thongtin();
+                tt.MdiParent = this;
+                tt.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+        public Form IsActive(Type ftype)
+        {
+            foreach(Form f in this.MdiChildren)
+            {
+                if(f.GetType()==ftype)
+                {
+                    return f;
+                }
+            }
+            return null;
+        }
+
+        private void barsubHQKTP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(HieuQuaKhaiThacPhong));
+            if (form == null)
+            {
+                HieuQuaKhaiThacPhong tt = new HieuQuaKhaiThacPhong();
+                tt.MdiParent = this;
+                tt.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void barsubDsPDP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(DanhSachPhieuDP));
+            if (form == null)
+            {
+                DanhSachPhieuDP tt = new DanhSachPhieuDP();
+                tt.MdiParent = this;
+                tt.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+           
+        }
+
+        private void barsubDsChi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(DanhSachChi));
+            if (form == null)
+            {
+                DanhSachChi dsc = new DanhSachChi();
+                dsc.MdiParent = this;
+                dsc.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+           
+        }
+
+        private void barsubBaoCaoCDH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(DanhSachThu));
+            if (form == null)
+            {
+                DanhSachThu dst = new DanhSachThu();
+                dst.MdiParent = this;
+                dst.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void barsubDsDT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(DoiTac));
+            if (form == null)
+            {
+                DoiTac dst = new DoiTac();
+                dst.MdiParent = this;
+                dst.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void barsubDsKH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(KhachHang));
+            if (form == null)
+            {
+                KhachHang dst = new KhachHang();
+                dst.MdiParent = this;
+                dst.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DoiMatKhau dmk = new DoiMatKhau();
+            dmk.Show();
+        }
+
+        private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = IsActive(typeof(QuanTriNguoiDung));
+            if (form == null)
+            {
+                QuanTriNguoiDung dst = new QuanTriNguoiDung();
+                dst.MdiParent = this;
+                dst.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+    }
+}
