@@ -57,17 +57,16 @@ namespace devexpress.View
             var list2 = db.Rooms.ToList();
             foreach (var color in list2)
             {
-                if (Convert.ToInt32(e.Item.Elements[0].Text) == 1&&color.Manhom==1)
+                var roomtang = db.RoomTangs.ToList();
+                foreach (var room in roomtang)
                 {
-                    e.Item.AppearanceItem.Normal.BackColor = Color.BlanchedAlmond;
-                }
-                else if (Convert.ToInt32(e.Item.Elements[0].Text) == 2 && color.Manhom == 2)
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = Color.Orange;
-                }
-                else if(Convert.ToInt32(e.Item.Elements[0].Text) == 3 && color.Manhom == 3)
-                {
-                    e.Item.AppearanceItem.Normal.BackColor =Color.DarkViolet;
+                    ColorPickEdit c = new ColorPickEdit();
+                    if (Convert.ToInt32(e.Item.Elements[0].Text) == room.Manhom && color.Manhom == room.Manhom)
+                    {
+                        c.EditValue = String.Format("{0:X}", room.Mamau);
+                        Color mau = c.Color;
+                        e.Item.AppearanceItem.Normal.BackColor = mau;
+                    }
                 }
             }
 
@@ -115,7 +114,7 @@ namespace devexpress.View
             {
                 Sodophong_Load(sender, e);
             }
-            if(rbLoc.SelectedIndex == 1)
+            if (rbLoc.SelectedIndex == 1)
             {
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
@@ -129,8 +128,8 @@ namespace devexpress.View
             {
                 var datefrom = Convert.ToDateTime(dateEditFrom.EditValue);
                 var dateto = Convert.ToDateTime(dateEditTo.EditValue);
-                datefrom=datefrom.Date;
-                dateto=dateto.Date;
+                datefrom = datefrom.Date;
+                dateto = dateto.Date;
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
@@ -139,12 +138,12 @@ namespace devexpress.View
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
             }
-            if(rbLoc.SelectedIndex==3)
+            if (rbLoc.SelectedIndex == 3)
             {
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where r.Status==0
+                           where r.Status == 0
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
@@ -153,7 +152,7 @@ namespace devexpress.View
 
         private void adornerUIManager1_QueryGuideFlyoutControl(object sender, DevExpress.Utils.VisualEffects.QueryGuideFlyoutControlEventArgs e)
         {
-            
+
         }
     }
 }

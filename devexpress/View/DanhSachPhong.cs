@@ -1,4 +1,6 @@
 ﻿using devexpress.Model;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using System;
 using System.Collections.Generic;
@@ -22,77 +24,100 @@ namespace devexpress.View
 
         private void DanhSachPhong_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'phanMemQLKSDataSet.Rooms' table. You can move, or remove it, as needed.
-            //this.roomsTableAdapter.Fill(this.phanMemQLKSDataSet.Rooms);
-            var list = (from p in db.Rooms
-                       join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                       select new { p.Sophong, p.Sogiuong, p.Songuoi,pc.Tenloai }).ToList();
-            gcDataList.DataSource = list;
-        }
-
-        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            gcDataList.BeginUpdate();
-            gcDataList.DataSource = null;
             var list = (from p in db.Rooms
                         join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        where p.Manhom==2
-                        select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
-            gcDataList.DataSource = list;
-            gcDataList.EndUpdate();
-        }
 
-        private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            gcDataList.BeginUpdate();
-            gcDataList.DataSource = null;
-            var list = (from p in db.Rooms
-                        join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        where p.Manhom == 1
                         select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
             gcDataList.DataSource = list;
-            gcDataList.EndUpdate();
-        }
-
-        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            gcDataList.BeginUpdate();
-            gcDataList.DataSource = null;
-            var list = (from p in db.Rooms
-                        join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        where p.Manhom == 3
-                        select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
-            gcDataList.DataSource = list;
-            gcDataList.EndUpdate();
-        }
-
-        private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            gcDataList.BeginUpdate();
-            gcDataList.DataSource = null;
-            var list = (from p in db.Rooms
-                        join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        where p.Manhom == 4
-                        select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
-            gcDataList.DataSource = list;
-            gcDataList.EndUpdate();
-        }
-
-        private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            gcDataList.BeginUpdate();
-            gcDataList.DataSource = null;
-            var list = (from p in db.Rooms
-                        join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
-            gcDataList.DataSource = list;
-            gcDataList.EndUpdate();
+            var listtang = db.RoomTangs.ToList();
+            treeList1.SelectImageList = imageCollection1;
+            TreeListNode codeNode = treeList1.AppendNode(null, null);
+            codeNode.ImageIndex = 0;
+            codeNode.SetValue("name", "Tất cả các phòng");
+            foreach (var item in listtang)
+            {
+                TreeListNode childNode = null;
+                childNode = treeList1.AppendNode(null, codeNode);
+                childNode.SetValue("name", item.Vitri);
+            }
         }
 
         private void btnNhom_Click(object sender, EventArgs e)
         {
             Danhsachnhomphong dsn = new Danhsachnhomphong();
+            dsn.StartPosition= FormStartPosition.CenterScreen;
             dsn.Show();
+        }
+
+        private void gvDataList_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            e.Info.DisplayText = "STT";
+            if (!gridView1.IsGroupRow(e.RowHandle)) //Nếu không phải là Group
+            {
+                if (e.Info.IsRowIndicator) //Nếu là dòng Indicator
+                {
+                    if (e.RowHandle < 0)
+                    {
+                        e.Info.ImageIndex = 0;
+                        e.Info.DisplayText = string.Empty;
+                    }
+                    else
+                    {
+                        e.Info.ImageIndex = -1; //Không hiển thị hình
+                        e.Info.DisplayText = (e.RowHandle + 1).ToString(); //Số thứ tự tăng dần
+                    }
+
+                    //hàm này dùng thay đổi độ rộng mặc định của cột số thứ tự
+                    var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    var _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDataList); }));
+                }
+            }
+            else
+            {
+                e.Info.ImageIndex = -1;
+                e.Info.DisplayText = string.Format("[{0}]", e.RowHandle * -1); //Nhân -1 để đánh lại số thứ tự tăng dần
+                var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                var _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDataList); }));
+            }
+        }
+
+        private bool cal(int _Width, GridView _View)
+        {
+            _View.IndicatorWidth = _View.IndicatorWidth < _Width ? _Width : _View.IndicatorWidth;
+            return true;
+        }
+
+        private void treeList1_CustomDrawNodeCell(object sender, DevExpress.XtraTreeList.CustomDrawNodeCellEventArgs e)
+        {
+            TreeList tree = sender as TreeList;
+            if (e.Node == tree.FocusedNode)
+            {
+                if (e.CellValue != "Tất cả các phòng")
+                {
+                    gcDataList.BeginUpdate();
+                    gcDataList.DataSource = null;
+                    var list = (from p in db.Rooms
+                                join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
+                                join pt in db.RoomTangs on p.Manhom equals pt.Manhom
+                                where pt.Vitri == e.CellValue
+                                select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
+                    gcDataList.DataSource = list;
+                    gcDataList.EndUpdate();
+                }
+                else
+                {
+                    gcDataList.BeginUpdate();
+                    gcDataList.DataSource = null;
+                    var list = (from p in db.Rooms
+                                join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
+                                join pt in db.RoomTangs on p.Manhom equals pt.Manhom
+                                select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
+                    gcDataList.DataSource = list;
+                    gcDataList.EndUpdate();
+                }
+            }
         }
     }
 }

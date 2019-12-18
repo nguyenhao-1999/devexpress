@@ -94,8 +94,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DanhsachnhomphongBUS.cs" />
     <Compile Include="BUS\DK_CustomerBUS.cs" />
     <Compile Include="BUS\RoomBUS.cs" />
+    <Compile Include="DAO\DanhsachnhomphongDAO.cs" />
     <Compile Include="DAO\DK_CustomerDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="Model\BangGia.cs" />

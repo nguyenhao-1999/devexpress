@@ -28,25 +28,24 @@ namespace devexpress.BUS
         {
 
         }
-        DK_CustomerDAO dao = new DK_CustomerDAO();
         public void NewCustomer(DK_Customer cus)
         {
-            dao.NewCustomer(cus);
+            DK_CustomerDAO.Instance.NewCustomer(cus);
         }
 
         public void Xem(GridControl gcDataCheckin,int sophong)
         {
-            dao.Xem(gcDataCheckin,sophong);
+            DK_CustomerDAO.Instance.Xem(gcDataCheckin,sophong);
         }
 
         public void EditCustomer(DK_Customer cus)
         {
-            dao.Edit(cus);
+            DK_CustomerDAO.Instance.Edit(cus);
         }
 
         public void Xoa(int id)
         {
-            dao.Xoa(id);
+            DK_CustomerDAO.Instance.Xoa(id);
         }
     }
 }

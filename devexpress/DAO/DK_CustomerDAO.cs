@@ -15,6 +15,16 @@ namespace devexpress.DAO
 {
     public class DK_CustomerDAO:QLKSDbContext
     {
+        private static DK_CustomerDAO instance;
+        public static DK_CustomerDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new DK_CustomerDAO();
+                return instance;
+            }
+        }
         public void NewCustomer(DK_Customer cus)
         {
             var list = this.DK_Customers.ToList();

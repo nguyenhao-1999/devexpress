@@ -65,7 +65,7 @@
             this.gcNhomphong.Name = "gcNhomphong";
             this.gcNhomphong.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.skColor});
-            this.gcNhomphong.Size = new System.Drawing.Size(624, 274);
+            this.gcNhomphong.Size = new System.Drawing.Size(589, 274);
             this.gcNhomphong.TabIndex = 0;
             this.gcNhomphong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNhomphong});
@@ -117,7 +117,7 @@
             this.skColor.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.skColor.Name = "skColor";
-            this.skColor.ColorChanged += new System.EventHandler(this.skColor_ColorChanged);
+            this.skColor.StoreColorAsInteger = true;
             // 
             // panelControl1
             // 
@@ -130,56 +130,62 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 379);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(624, 29);
+            this.panelControl1.Size = new System.Drawing.Size(589, 29);
             this.panelControl1.TabIndex = 1;
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(465, 1);
+            this.btnThoat.Location = new System.Drawing.Point(481, 1);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(87, 23);
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(372, 1);
+            this.btnBoqua.Location = new System.Drawing.Point(388, 1);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(87, 23);
             this.btnBoqua.TabIndex = 4;
             this.btnBoqua.Text = "Bỏ qua";
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(279, 0);
+            this.btnLuu.Location = new System.Drawing.Point(295, 1);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(87, 23);
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(186, 0);
+            this.btnXoa.Location = new System.Drawing.Point(202, 1);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(87, 23);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(93, 1);
+            this.btnSua.Location = new System.Drawing.Point(109, 1);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(87, 23);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThemnhom
             // 
-            this.btnThemnhom.Location = new System.Drawing.Point(0, 1);
+            this.btnThemnhom.Location = new System.Drawing.Point(16, 1);
             this.btnThemnhom.Name = "btnThemnhom";
             this.btnThemnhom.Size = new System.Drawing.Size(87, 23);
             this.btnThemnhom.TabIndex = 0;
             this.btnThemnhom.Text = "Thêm nhóm";
+            this.btnThemnhom.Click += new System.EventHandler(this.btnThemnhom_Click);
             // 
             // labelControl1
             // 
@@ -191,6 +197,7 @@
             // 
             // txtMa
             // 
+            this.txtMa.Enabled = false;
             this.txtMa.Location = new System.Drawing.Point(49, 286);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(100, 22);
@@ -227,15 +234,15 @@
             this.cpeMau.Properties.AutomaticColor = System.Drawing.Color.Black;
             this.cpeMau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cpeMau.Size = new System.Drawing.Size(100, 22);
+            this.cpeMau.Size = new System.Drawing.Size(236, 22);
             this.cpeMau.TabIndex = 7;
-            this.cpeMau.TextChanged += new System.EventHandler(this.cpeMau_TextChanged);
+            this.cpeMau.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.cpeMau_CustomDisplayText);
             // 
             // Danhsachnhomphong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 408);
+            this.ClientSize = new System.Drawing.Size(589, 408);
             this.Controls.Add(this.cpeMau);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.txtVitri);
