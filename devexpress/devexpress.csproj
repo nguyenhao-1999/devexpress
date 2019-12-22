@@ -96,10 +96,14 @@
   <ItemGroup>
     <Compile Include="BUS\DanhsachnhomphongBUS.cs" />
     <Compile Include="BUS\DK_CustomerBUS.cs" />
+    <Compile Include="BUS\KhachHangBUS.cs" />
     <Compile Include="BUS\RoomBUS.cs" />
+    <Compile Include="BUS\ThietBiTienNghiBUS.cs" />
     <Compile Include="DAO\DanhsachnhomphongDAO.cs" />
     <Compile Include="DAO\DK_CustomerDAO.cs" />
+    <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\ThietBiTienNghiDAO.cs" />
     <Compile Include="Model\BangGia.cs" />
     <Compile Include="Model\BangGiaDV.cs" />
     <Compile Include="Model\BaoThuc.cs" />
@@ -133,6 +137,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QLKhachSanDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKhachSanDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSanDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKhachSanDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSanDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="View\CongNo.cs">
       <SubType>Form</SubType>
@@ -405,6 +424,39 @@
     <None Include="Public\Images\linhvuc.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLKhachSanDataSet.xsc">
+      <DependentUpon>QLKhachSanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKhachSanDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKhachSanDataSet.xss">
+      <DependentUpon>QLKhachSanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet1.xsc">
+      <DependentUpon>QLKhachSanDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKhachSanDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKhachSanDataSet1.xss">
+      <DependentUpon>QLKhachSanDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet2.xsc">
+      <DependentUpon>QLKhachSanDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKhachSanDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKhachSanDataSet2.xss">
+      <DependentUpon>QLKhachSanDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Documents-icon.png" />
   </ItemGroup>
   <ItemGroup>

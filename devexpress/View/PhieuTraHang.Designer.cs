@@ -72,7 +72,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 126);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1274, 578);
+            this.gridControl1.Size = new System.Drawing.Size(1274, 352);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -90,6 +90,8 @@
             this.grcGhiChu});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
             // 
             // grcSTT
             // 
