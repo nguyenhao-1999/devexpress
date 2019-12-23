@@ -37,14 +37,18 @@
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.gcThietBi = new DevExpress.XtraGrid.GridControl();
+            this.thietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLKhachSanDataSet = new devexpress.QLKhachSanDataSet();
             this.gvThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaTb = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoiSX = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKoSD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaNhom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -60,18 +64,16 @@
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoqua = new DevExpress.XtraEditors.SimpleButton();
-            this.colMaTb = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtMaNhom = new DevExpress.XtraEditors.TextEdit();
-            this.colMaNhom = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.qLKhachSanDataSet = new devexpress.QLKhachSanDataSet();
-            this.thietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.thietBiTableAdapter = new devexpress.QLKhachSanDataSetTableAdapters.ThietBiTableAdapter();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtSTT = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcThietBi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -82,8 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbKoSD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSTT.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,7 +158,6 @@
             // 
             // gcThietBi
             // 
-            this.gcThietBi.DataSource = this.thietBiBindingSource;
             this.gcThietBi.Location = new System.Drawing.Point(1, 53);
             this.gcThietBi.MainView = this.gvThietBi;
             this.gcThietBi.Name = "gcThietBi";
@@ -169,6 +168,16 @@
             this.gcThietBi.TabIndex = 11;
             this.gcThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvThietBi});
+            // 
+            // thietBiBindingSource
+            // 
+            this.thietBiBindingSource.DataMember = "ThietBi";
+            this.thietBiBindingSource.DataSource = this.qLKhachSanDataSet;
+            // 
+            // qLKhachSanDataSet
+            // 
+            this.qLKhachSanDataSet.DataSetName = "QLKhachSanDataSet";
+            this.qLKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvThietBi
             // 
@@ -197,6 +206,15 @@
             this.colMa.Visible = true;
             this.colMa.VisibleIndex = 0;
             this.colMa.Width = 95;
+            // 
+            // colMaTb
+            // 
+            this.colMaTb.Caption = "Mã Thiết bị";
+            this.colMaTb.FieldName = "MaTB";
+            this.colMaTb.Name = "colMaTb";
+            this.colMaTb.Visible = true;
+            this.colMaTb.VisibleIndex = 1;
+            this.colMaTb.Width = 120;
             // 
             // colTen
             // 
@@ -255,6 +273,14 @@
             this.colGhiChu.Visible = true;
             this.colGhiChu.VisibleIndex = 6;
             this.colGhiChu.Width = 217;
+            // 
+            // colMaNhom
+            // 
+            this.colMaNhom.Caption = " Mã nhóm";
+            this.colMaNhom.FieldName = "MaNhom";
+            this.colMaNhom.Name = "colMaNhom";
+            this.colMaNhom.Visible = true;
+            this.colMaNhom.VisibleIndex = 7;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -400,15 +426,6 @@
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
-            // colMaTb
-            // 
-            this.colMaTb.Caption = "Mã Thiết bị";
-            this.colMaTb.FieldName = "MaTB";
-            this.colMaTb.Name = "colMaTb";
-            this.colMaTb.Visible = true;
-            this.colMaTb.VisibleIndex = 1;
-            this.colMaTb.Width = 120;
-            // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -427,24 +444,6 @@
             this.txtMaNhom.Properties.Appearance.Options.UseFont = true;
             this.txtMaNhom.Size = new System.Drawing.Size(220, 24);
             this.txtMaNhom.TabIndex = 29;
-            // 
-            // colMaNhom
-            // 
-            this.colMaNhom.Caption = " Mã nhóm";
-            this.colMaNhom.FieldName = "MaNhom";
-            this.colMaNhom.Name = "colMaNhom";
-            this.colMaNhom.Visible = true;
-            this.colMaNhom.VisibleIndex = 7;
-            // 
-            // qLKhachSanDataSet
-            // 
-            this.qLKhachSanDataSet.DataSetName = "QLKhachSanDataSet";
-            this.qLKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // thietBiBindingSource
-            // 
-            this.thietBiBindingSource.DataMember = "ThietBi";
-            this.thietBiBindingSource.DataSource = this.qLKhachSanDataSet;
             // 
             // thietBiTableAdapter
             // 
@@ -503,6 +502,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcThietBi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
@@ -513,8 +514,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbKoSD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSTT.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

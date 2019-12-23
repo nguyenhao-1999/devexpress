@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.Utils.Animation;
+using DichVu = devexpress.View.DichVu;
 
 namespace devexpress
 {
@@ -119,6 +120,12 @@ namespace devexpress
         {
             ThietBiTienNghi tb = new ThietBiTienNghi();
             ViewChildForm(tb);
+        }
+
+        private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DichVu dv = new DichVu();
+            ViewChildForm(dv);
         }
     }
 }

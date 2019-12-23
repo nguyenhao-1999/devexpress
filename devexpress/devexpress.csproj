@@ -95,11 +95,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\DanhsachnhomphongBUS.cs" />
+    <Compile Include="BUS\DichVuBUS.cs" />
     <Compile Include="BUS\DK_CustomerBUS.cs" />
     <Compile Include="BUS\KhachHangBUS.cs" />
     <Compile Include="BUS\RoomBUS.cs" />
     <Compile Include="BUS\ThietBiTienNghiBUS.cs" />
     <Compile Include="DAO\DanhsachnhomphongDAO.cs" />
+    <Compile Include="DAO\DichVuDAO.cs" />
     <Compile Include="DAO\DK_CustomerDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
@@ -152,6 +154,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLKhachSanDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKhachSanDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSanDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="View\CongNo.cs">
       <SubType>Form</SubType>
@@ -456,6 +463,17 @@
     </None>
     <None Include="QLKhachSanDataSet2.xss">
       <DependentUpon>QLKhachSanDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet3.xsc">
+      <DependentUpon>QLKhachSanDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLKhachSanDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKhachSanDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKhachSanDataSet3.xss">
+      <DependentUpon>QLKhachSanDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Resources\Documents-icon.png" />
   </ItemGroup>

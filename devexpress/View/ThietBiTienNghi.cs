@@ -23,7 +23,7 @@ namespace devexpress.View
         private void ThietBiTienNghi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLKhachSanDataSet.ThietBi' table. You can move, or remove it, as needed.
-            this.thietBiTableAdapter.Fill(this.qLKhachSanDataSet.ThietBi);
+           // this.thietBiTableAdapter.Fill(this.qLKhachSanDataSet.ThietBi);
             var list = db.ThietBi.ToList();
             gcThietBi.DataSource = list;
         }

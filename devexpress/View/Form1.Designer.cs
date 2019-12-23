@@ -88,11 +88,11 @@
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.rbStatus = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtGio = new DevExpress.XtraEditors.TextEdit();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCL1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -155,7 +155,7 @@
             this.TroGiup});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl1.Size = new System.Drawing.Size(1311, 194);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControl1.StatusBar = this.rbStatus;
             // 
             // imageCL1
             // 
@@ -293,6 +293,7 @@
             this.btnDichvu.Name = "btnDichvu";
             this.btnDichvu.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnDichvu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDichvu_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -661,6 +662,13 @@
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
             this.ribbonPageGroup14.Text = "Trợ giúp";
             // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 752);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1311, 35);
+            // 
             // rbStatus
             // 
             this.rbStatus.Location = new System.Drawing.Point(1, 362);
@@ -699,13 +707,6 @@
             this.txtGio.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.txtGio.Size = new System.Drawing.Size(89, 22);
             this.txtGio.TabIndex = 3;
-            // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 752);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1311, 35);
             // 
             // Form1
             // 
