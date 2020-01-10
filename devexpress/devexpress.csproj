@@ -48,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video">
+      <HintPath>..\..\..\Downloads\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\..\..\Downloads\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.1" />
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.1" />
@@ -106,6 +112,7 @@
     <Compile Include="Model\BoPhan.cs" />
     <Compile Include="Model\ChungTu.cs" />
     <Compile Include="Model\ChungTuCT.cs" />
+    <Compile Include="Model\Dangky.cs" />
     <Compile Include="Model\DangKyKhach.cs" />
     <Compile Include="Model\DangKyPhong.cs" />
     <Compile Include="Model\DichVu.cs" />
@@ -124,11 +131,6 @@
     <Compile Include="Model\ThietBi.cs" />
     <Compile Include="Model\ThietBiPhong.cs" />
     <Compile Include="Model\ThuChi.cs" />
-    <Compile Include="PhanMemQLKSDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhanMemQLKSDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +195,12 @@
     </Compile>
     <Compile Include="View\DichVu.Designer.cs">
       <DependentUpon>DichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DK_ThemKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DK_ThemKhach.Designer.cs">
+      <DependentUpon>DK_ThemKhach.cs</DependentUpon>
     </Compile>
     <Compile Include="View\DoanhThuTongHop.cs">
       <SubType>Form</SubType>
@@ -286,6 +294,12 @@
     <Compile Include="View\Thongtin.Designer.cs">
       <DependentUpon>Thongtin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Themkhach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Themkhach.Designer.cs">
+      <DependentUpon>Themkhach.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\CongNo.resx">
       <DependentUpon>CongNo.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DichVu.resx">
       <DependentUpon>DichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DK_ThemKhach.resx">
+      <DependentUpon>DK_ThemKhach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DoanhThuTongHop.resx">
       <DependentUpon>DoanhThuTongHop.cs</DependentUpon>
@@ -367,21 +384,13 @@
     <EmbeddedResource Include="View\Thongtin.resx">
       <DependentUpon>Thongtin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Themkhach.resx">
+      <DependentUpon>Themkhach.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="PhanMemQLKSDataSet.xsc">
-      <DependentUpon>PhanMemQLKSDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PhanMemQLKSDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PhanMemQLKSDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PhanMemQLKSDataSet.xss">
-      <DependentUpon>PhanMemQLKSDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -444,8 +453,12 @@
     <None Include="Resources\diagram-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Office-Customer-Male-Light-icon.png" />
+    <None Include="Resources\Office-Customer-Male-Light-icon1.png" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\diagram-icon1.png" />
+    <None Include="Resources\camera-icon.png" />
+    <None Include="Resources\camera-icon %281%29.png" />
     <Content Include="Resources\nhom20.png" />
     <None Include="Resources\user.bmp" />
   </ItemGroup>

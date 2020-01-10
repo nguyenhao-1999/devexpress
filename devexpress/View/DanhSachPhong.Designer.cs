@@ -53,12 +53,10 @@
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcUSD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.phanMemQLKSDataSet = new devexpress.PhanMemQLKSDataSet();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.roomsTableAdapter = new devexpress.PhanMemQLKSDataSetTableAdapters.RoomsTableAdapter();
             this.grcSoPhong = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.grcSTT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.treeListBand1 = new DevExpress.XtraTreeList.Columns.TreeListBand();
@@ -74,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDataList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDataList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phanMemQLKSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -326,16 +323,6 @@
             this.grcUSD.Visible = true;
             this.grcUSD.Width = 98;
             // 
-            // roomsBindingSource
-            // 
-            this.roomsBindingSource.DataMember = "Rooms";
-            this.roomsBindingSource.DataSource = this.phanMemQLKSDataSet;
-            // 
-            // phanMemQLKSDataSet
-            // 
-            this.phanMemQLKSDataSet.DataSetName = "PhanMemQLKSDataSet";
-            this.phanMemQLKSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.gridControl1);
@@ -367,10 +354,6 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(247, 648);
             this.panelControl3.TabIndex = 0;
-            // 
-            // roomsTableAdapter
-            // 
-            this.roomsTableAdapter.ClearBeforeFill = true;
             // 
             // grcSoPhong
             // 
@@ -455,7 +438,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDataList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDataList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phanMemQLKSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -482,9 +464,7 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private PhanMemQLKSDataSet phanMemQLKSDataSet;
         private System.Windows.Forms.BindingSource roomsBindingSource;
-        private PhanMemQLKSDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
         private DevExpress.XtraGrid.GridControl gcDataList;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvDataList;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn grcSoGiuong;

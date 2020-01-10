@@ -27,9 +27,9 @@ namespace devexpress.View
         int otp = 0;
 
         private void gvDataCheckin_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
-        {
+        {   
             e.Info.DisplayText = "STT";
-            if(!gvDataCheckin.IsGroupRow(e.RowHandle))
+            if (!gvDataCheckin.IsGroupRow(e.RowHandle))
             {
                 if (e.Info.IsRowIndicator)
                 {

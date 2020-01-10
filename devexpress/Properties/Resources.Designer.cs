@@ -123,6 +123,26 @@ namespace devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap camera_icon {
+            get {
+                object obj = ResourceManager.GetObject("camera-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap camera_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("camera-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clean18 {
             get {
                 object obj = ResourceManager.GetObject("clean18", resourceCulture);
@@ -196,6 +216,16 @@ namespace devexpress.Properties {
         internal static System.Drawing.Bitmap modify_key_icon {
             get {
                 object obj = ResourceManager.GetObject("modify-key-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Office_Customer_Male_Light_icon {
+            get {
+                object obj = ResourceManager.GetObject("Office-Customer-Male-Light-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -23,7 +23,7 @@ namespace devexpress.Model
         [Required]
         public int SoLuong { get; set; }
         [Required]
-        public float DônGia { get; set; }
+        public float DonGia { get; set; }
         [Required]
         public string LoaiTien { get; set; }
         [Required]

@@ -19,6 +19,8 @@ namespace devexpress.Model
         [Required]
         public int SoPhong { get; set; }
         [Required]
+        public DateTime NgayDK { get; set; }
+        [Required]
         public DateTime NgayCheckIn { get; set; }
         public DateTime NgayCheckOut { get; set; }
         [Required]

@@ -78,6 +78,9 @@
             this.colMau});
             this.gvNhomphong.GridControl = this.gcNhomphong;
             this.gvNhomphong.Name = "gvNhomphong";
+            this.gvNhomphong.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvNhomphong.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvNhomphong.OptionsBehavior.Editable = false;
             this.gvNhomphong.OptionsView.ShowGroupPanel = false;
             this.gvNhomphong.OptionsView.ShowIndicator = false;
             this.gvNhomphong.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gvNhomphong_CustomRowCellEdit);

@@ -69,6 +69,7 @@
             this.barsubWS = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnHoSoPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.khoa = new DevExpress.XtraBars.BarButtonItem();
             this.hethong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -92,12 +93,20 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtGio = new DevExpress.XtraEditors.TextEdit();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnChuphinh = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKhoa = new DevExpress.XtraEditors.SimpleButton();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.cameraControl1 = new DevExpress.XtraEditors.Camera.CameraControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCL1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -142,10 +151,11 @@
             this.barsubHDSD,
             this.barsubWS,
             this.barSubItem1,
-            this.btnHoSoPhong});
+            this.btnHoSoPhong,
+            this.khoa});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 38;
+            this.ribbonControl1.MaxItemId = 39;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.hethong,
@@ -155,7 +165,7 @@
             this.TroGiup});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl1.Size = new System.Drawing.Size(1311, 194);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControl1.StatusBar = this.rbStatus;
             // 
             // imageCL1
             // 
@@ -293,6 +303,7 @@
             this.btnDichvu.Name = "btnDichvu";
             this.btnDichvu.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnDichvu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDichvu_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -510,6 +521,15 @@
             this.btnHoSoPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHoSoPhong.ImageOptions.Image")));
             this.btnHoSoPhong.Name = "btnHoSoPhong";
             // 
+            // khoa
+            // 
+            this.khoa.Caption = "F11-Khóa";
+            this.khoa.Id = 38;
+            this.khoa.ImageOptions.ImageIndex = 74;
+            this.khoa.Name = "khoa";
+            this.khoa.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // hethong
             // 
             this.hethong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -700,12 +720,62 @@
             this.txtGio.Size = new System.Drawing.Size(89, 22);
             this.txtGio.TabIndex = 3;
             // 
-            // ribbonStatusBar1
+            // panelControl1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 752);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1311, 35);
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.btnChuphinh);
+            this.panelControl1.Controls.Add(this.btnKhoa);
+            this.panelControl1.Location = new System.Drawing.Point(0, 659);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1311, 77);
+            this.panelControl1.TabIndex = 5;
+            // 
+            // btnChuphinh
+            // 
+            this.btnChuphinh.ImageOptions.Image = global::devexpress.Properties.Resources.camera_icon__1_;
+            this.btnChuphinh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnChuphinh.Location = new System.Drawing.Point(12, 7);
+            this.btnChuphinh.Name = "btnChuphinh";
+            this.btnChuphinh.Size = new System.Drawing.Size(98, 65);
+            this.btnChuphinh.TabIndex = 1;
+            this.btnChuphinh.Text = "F3-Chụp hình";
+            this.btnChuphinh.Click += new System.EventHandler(this.btnChuphinh_Click);
+            // 
+            // btnKhoa
+            // 
+            this.btnKhoa.ImageOptions.Image = global::devexpress.Properties.Resources.modify_key_icon;
+            this.btnKhoa.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnKhoa.Location = new System.Drawing.Point(130, 7);
+            this.btnKhoa.Name = "btnKhoa";
+            this.btnKhoa.Size = new System.Drawing.Size(76, 65);
+            this.btnKhoa.TabIndex = 0;
+            this.btnKhoa.Text = "F11-Khóa";
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
+            // 
+            // cameraControl1
+            // 
+            this.cameraControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cameraControl1.Location = new System.Drawing.Point(12, 239);
+            this.cameraControl1.Name = "cameraControl1";
+            this.cameraControl1.Size = new System.Drawing.Size(617, 376);
+            this.cameraControl1.TabIndex = 7;
+            this.cameraControl1.Text = "cameraControl1";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureEdit1.Location = new System.Drawing.Point(675, 239);
+            this.pictureEdit1.MenuManager = this.ribbonControl1;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
+            this.pictureEdit1.Size = new System.Drawing.Size(624, 376);
+            this.pictureEdit1.TabIndex = 8;
             // 
             // Form1
             // 
@@ -714,8 +784,10 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 787);
-            this.Controls.Add(this.ribbonStatusBar1);
+            this.ClientSize = new System.Drawing.Size(1311, 769);
+            this.Controls.Add(this.pictureEdit1);
+            this.Controls.Add(this.cameraControl1);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.txtGio);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.ribbonControl1);
@@ -732,6 +804,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -801,7 +876,13 @@
         private DevExpress.XtraBars.BarButtonItem btnHoSoPhong;
         private DevExpress.XtraEditors.TextEdit txtGio;
         private DevExpress.XtraEditors.TextEdit txtDate;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.BarButtonItem khoa;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnKhoa;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private DevExpress.XtraEditors.Camera.CameraControl cameraControl1;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnChuphinh;
     }
 }
 

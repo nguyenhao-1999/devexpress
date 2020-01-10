@@ -94,14 +94,14 @@ namespace devexpress.View
             TreeList tree = sender as TreeList;
             if (e.Node == tree.FocusedNode)
             {
-                if (e.CellValue != "Tất cả các phòng")
+                if (e.CellText != "Tất cả các phòng")
                 {
                     gcDataList.BeginUpdate();
                     gcDataList.DataSource = null;
                     var list = (from p in db.Rooms
                                 join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
                                 join pt in db.RoomTangs on p.Manhom equals pt.Manhom
-                                where pt.Vitri == e.CellValue
+                                where pt.Vitri == e.CellValue.ToString()
                                 select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
                     gcDataList.DataSource = list;
                     gcDataList.EndUpdate();

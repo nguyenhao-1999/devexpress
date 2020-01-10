@@ -437,7 +437,7 @@
             // pictureEdit1
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.EditValue = global::devexpress.Properties.Resources.Office_Customer_Male_Light_icon;
             this.pictureEdit1.Location = new System.Drawing.Point(5, 5);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -731,6 +731,7 @@
             this.colGioCheckout,
             this.colGhichu});
             this.gvDataCheckin.GridControl = this.gcDataCheckin;
+            this.gvDataCheckin.IndicatorWidth = 35;
             this.gvDataCheckin.Name = "gvDataCheckin";
             this.gvDataCheckin.OptionsFind.AlwaysVisible = true;
             this.gvDataCheckin.OptionsView.ShowGroupPanel = false;

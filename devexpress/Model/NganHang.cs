@@ -16,6 +16,7 @@ namespace devexpress.Model
         public int Id { get; set; }
         [Required]
         public string Ma { get; set; }
+        public string Macha { get; set; }
         [Required]
         public string TenBank { get; set; }
         [Required]

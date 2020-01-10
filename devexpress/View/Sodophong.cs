@@ -78,7 +78,7 @@ namespace devexpress.View
                     {
                         e.Item.Elements[4].Text = item.Hoten;
                         e.Item.Elements[5].Text = item.DateCheckin.ToShortDateString();
-                        e.Item.Elements[1].Image = global::devexpress.Properties.Resources.Actions_list_add_user_icon;
+                        e.Item.Elements[1].Image = global::devexpress.Properties.Resources.Office_Customer_Male_Light_icon;
                     }
                 }
             }

@@ -32,6 +32,5 @@ namespace devexpress.Model
         [Required]
         public string GioCheckout { get; set; }
         public string Ghichu { get; set; }
-
     }
 }

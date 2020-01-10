@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.Utils.Animation;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using System.Drawing.Imaging;
 
 namespace devexpress
 {
@@ -18,6 +21,8 @@ namespace devexpress
         public Form1()
         {
             InitializeComponent();
+            cameraControl1.Hide();
+            pictureEdit1.Hide();
         }
         public void ViewChildForm(Form form)
         {
@@ -114,11 +119,45 @@ namespace devexpress
 
             ViewChildForm(tt);
         }
-
         private void btnThietbi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ThietBiTienNghi tb = new ThietBiTienNghi();
             ViewChildForm(tb);
+        }
+        private byte[] imageData;
+        private void btnKhoa_Click(object sender, EventArgs e)
+        {
+
+        }
+        int count = 0;
+        private void UpdateImageData(Image image)
+        {
+            DateTime dt = DateTime.Now;
+            using (var stream = new System.IO.MemoryStream())
+            {
+                string filename = @"C:\Users\PC\Desktop\Images\" + count++.ToString()+dt.ToString()+".jpg";
+                image.Save(filename);
+                imageData = stream.ToArray();
+            }
+        }
+
+        public byte[] ImageData
+        {
+            get { return imageData; }
+        }
+
+        private void btnChuphinh_Click(object sender, EventArgs e)
+        {
+            cameraControl1.Show();
+            //Image image = cameraControl1.TakeSnapshot();
+            //pictureEdit1.EditValue = image;
+            //UpdateImageData(image);
+        }
+
+        private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhieuDatPhongMoi dp = new PhieuDatPhongMoi();
+            dp.Show();
         }
     }
 }
