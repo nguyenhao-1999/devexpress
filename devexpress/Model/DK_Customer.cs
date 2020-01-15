@@ -14,7 +14,11 @@ namespace devexpress.Model
         [Key]
         public int Id { get; set; }
         [Required]
+        public int IdDK { get; set; }
+        [Required]
         public int IdKH { get; set; }
+        [Required]
+        public int Sophong { get; set; }
         [Required]
         public string CMND { get; set; }
         [Required]
@@ -25,11 +29,9 @@ namespace devexpress.Model
         public int Quoctich { get; set; }
         [Required]
         public DateTime DateCheckin { get; set; }
-        [Required]
         public string GioCheckin { get; set; } 
         [Required]
         public DateTime DateCheckout { get; set; }
-        [Required]
         public string GioCheckout { get; set; }
         public string Ghichu { get; set; }
     }

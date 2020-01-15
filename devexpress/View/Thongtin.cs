@@ -273,7 +273,6 @@ namespace devexpress.View
             DK_Customer khachhang = new DK_Customer();
             //khachhang.Id = k;
             khachhang.Id = Convert.ToInt32(gvDataCheckin.GetRowCellValue(gvDataCheckin.FocusedRowHandle, "Id"));
-            khachhang.IdKH = Convert.ToInt32(labPhong.Text.ToString().Trim());
             khachhang.CMND = txtCmnd.Text.ToString().Trim();
             khachhang.Hoten = txtHoten.Text.ToString().Trim();
             khachhang.Quoctich = Convert.ToInt32(lookUpEditQuoctich.EditValue);
@@ -298,8 +297,9 @@ namespace devexpress.View
             khachhang.DateCheckout = Convert.ToDateTime(dateEditCheckout.EditValue);
             khachhang.GioCheckout = txtGioCheckout.Text.ToString().Trim();
             khachhang.Ghichu = memoEditGhichu.Text.ToString().Trim();
+            khachhang.Sophong = Convert.ToInt32(labPhong.Text);
             //db.DK_Customers.Add(khachhang);
-            if(otp==1)
+            if (otp==1)
             {
                 DK_CustomerBUS.Instance.NewCustomer(khachhang);
                 DK_CustomerBUS.Instance.Xem(gcDataCheckin, Convert.ToInt32(labPhong.Text));

@@ -17,20 +17,17 @@ namespace devexpress.Model
         [Required]
         public string HoTen { get; set; }
         public string DonVi { get; set; }
-        [Required]
         public DateTime NgaySinh { get; set; }
         [Required]
-        public string GioiTnh { get; set; }
+        public bool GioiTnh { get; set; }
         [Required]
-        public string MaQT { get; set; }
-        public int SoCMND { get; set; }
+        public int MaQT { get; set; }
+        [Required]
+        public string SoCMND { get; set; }
         public string DiaChi { get; set; }
-        [Phone]
         public int Phone { get; set; }
-        [EmailAddress]
         public string Email { get; set; }
         public string GhhiChu { get; set; }
-        [CreditCard]
         public int SoATM { get; set; }
         public string MaBank { get; set; }
     }

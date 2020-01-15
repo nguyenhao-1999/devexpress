@@ -25,7 +25,6 @@ namespace devexpress.Model
         [Required]
         public int SoLuong { get; set; }
         public float GiaNhapCuoi { get; set; }
-        public DateTime NgayNhapCuoi { get; set; }
         public int GiaBinhQuuan { get; set; }
         public string Note { get; set; }
     }

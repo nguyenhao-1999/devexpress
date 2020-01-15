@@ -45,7 +45,10 @@ namespace devexpress.DAO
         public void Xem(GridControl gcDataCheckin,int sophong)
         {
 
-            var list = DK_Customers.Where(m=>m.IdKH== sophong).ToList();
+            var list = (from khach in this.DK_Customers
+                        from dk in Dangky
+                        where khach.Sophong == sophong && khach.IdDK == dk.Id && dk.DaCheckin == true
+                        select new { khach }).ToList();
             foreach (var item in list)
             {
                gcDataCheckin.DataSource = list;

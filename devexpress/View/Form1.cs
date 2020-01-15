@@ -12,6 +12,7 @@ using DevExpress.Utils.Animation;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Drawing.Imaging;
+using DichVu = devexpress.View.DichVu;
 
 namespace devexpress
 {
@@ -35,8 +36,8 @@ namespace devexpress
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           Sodophong tt = new Sodophong();
-           ViewChildForm(tt);
+            Sodophong tt = new Sodophong();
+            ViewChildForm(tt);
             txtDate.EditValue = DateTime.Now.ToShortDateString();
             txtGio.EditValue = DateTime.Now.ToShortTimeString();
         }
@@ -44,18 +45,18 @@ namespace devexpress
         private void btnRoom_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DanhSachPhong tt = new DanhSachPhong();
-            
+
             ViewChildForm(tt);
             tt.Width = this.Width;
         }
         private bool IsFormActived(Form form)
         {
             bool IsOpened = false;
-            if(MdiChildren.Count()>0)
+            if (MdiChildren.Count() > 0)
             {
-                foreach(var item in MdiChildren)
+                foreach (var item in MdiChildren)
                 {
-                    if(form.Name==item.Name)
+                    if (form.Name == item.Name)
                     {
                         xtraTabbedMdiManager1.Pages[item].MdiChild.Activate();
                         IsOpened = true;
@@ -135,7 +136,7 @@ namespace devexpress
             DateTime dt = DateTime.Now;
             using (var stream = new System.IO.MemoryStream())
             {
-                string filename = @"C:\Users\PC\Desktop\Images\" + count++.ToString()+dt.ToString()+".jpg";
+                string filename = @"C:\Users\PC\Desktop\Images\" + count++.ToString() + dt.ToString() + ".jpg";
                 image.Save(filename);
                 imageData = stream.ToArray();
             }
@@ -156,8 +157,20 @@ namespace devexpress
 
         private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PhieuDatPhongMoi dp = new PhieuDatPhongMoi();
-            dp.Show();
+            //PhieuDatPhongMoi dp = new PhieuDatPhongMoi();
+            //dp.Show();
         }
+
+        private void btnDichvu_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DichVu dv = new DichVu();
+            ViewChildForm(dv);
+        }
+
+        //private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        //{
+        //    DichVu dv = new DichVu();
+        //    ViewChildForm(dv);
+        //}
     }
 }

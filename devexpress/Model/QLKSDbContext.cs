@@ -28,6 +28,7 @@ namespace devexpress.Model
         public virtual DbSet<BangGia> BangGia { get; set; }
         public virtual DbSet<Khach> Khach { get; set; }
         public virtual DbSet<DangKyKhach> DangKyKhach { get; set; }
+        public virtual DbSet<Dangky> Dangky { get; set; }
         public virtual DbSet<DangKyPhong> DangKyPhong { get; set; }
         public virtual DbSet<ThuChi> ThuChi { get; set; }
         public virtual DbSet<ThietBiPhong> ThietBiPhong { get; set; }

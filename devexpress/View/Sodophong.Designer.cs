@@ -44,6 +44,7 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sodophong));
             this.colManhom = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colSophong = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -142,7 +143,7 @@
             this.tileView1.OptionsTiles.IndentBetweenGroups = 55;
             this.tileView1.OptionsTiles.IndentBetweenItems = 15;
             this.tileView1.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(5);
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(249, 130);
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(249, 140);
             this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Kanban;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.RowCount = 0;
@@ -155,11 +156,11 @@
             this.tileView1.TileColumns.Add(tableColumnDefinition1);
             this.tileView1.TileColumns.Add(tableColumnDefinition2);
             this.tileView1.TileColumns.Add(tableColumnDefinition3);
-            tableRowDefinition1.Length.Value = 17D;
-            tableRowDefinition2.Length.Value = 18D;
-            tableRowDefinition3.Length.Value = 18D;
-            tableRowDefinition4.Length.Value = 17D;
-            tableRowDefinition5.Length.Value = 20D;
+            tableRowDefinition1.Length.Value = 22D;
+            tableRowDefinition2.Length.Value = 24D;
+            tableRowDefinition3.Length.Value = 21D;
+            tableRowDefinition4.Length.Value = 25D;
+            tableRowDefinition5.Length.Value = 28D;
             this.tileView1.TileRows.Add(tableRowDefinition1);
             this.tileView1.TileRows.Add(tableRowDefinition2);
             this.tileView1.TileRows.Add(tableRowDefinition3);
@@ -206,12 +207,18 @@
             tileViewItemElement6.RowIndex = 3;
             tileViewItemElement6.Text = "";
             tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement7.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement7.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement7.RowIndex = 3;
+            tileViewItemElement7.Text = "";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
             this.tileView1.TileTemplate.Add(tileViewItemElement2);
             this.tileView1.TileTemplate.Add(tileViewItemElement3);
             this.tileView1.TileTemplate.Add(tileViewItemElement4);
             this.tileView1.TileTemplate.Add(tileViewItemElement5);
             this.tileView1.TileTemplate.Add(tileViewItemElement6);
+            this.tileView1.TileTemplate.Add(tileViewItemElement7);
             this.tileView1.ItemRightClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView1_ItemRightClick);
             this.tileView1.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView1_ItemCustomize);
             // 
@@ -509,7 +516,7 @@
             // rbLoc
             // 
             this.rbLoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbLoc.Location = new System.Drawing.Point(363, 0);
+            this.rbLoc.Location = new System.Drawing.Point(371, 0);
             this.rbLoc.MenuManager = this.barManager1;
             this.rbLoc.Name = "rbLoc";
             this.rbLoc.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -517,9 +524,10 @@
             this.rbLoc.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Danh sách"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng còn trống"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng đang có khách"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng có khách"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng đặt trước"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng đang sữa chửa")});
-            this.rbLoc.Size = new System.Drawing.Size(634, 33);
+            this.rbLoc.Size = new System.Drawing.Size(626, 33);
             this.rbLoc.TabIndex = 1;
             this.rbLoc.SelectedIndexChanged += new System.EventHandler(this.rbLoc_SelectedIndexChanged);
             // 

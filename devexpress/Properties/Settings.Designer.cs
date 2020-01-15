@@ -26,20 +26,10 @@ namespace devexpress.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=PhanMemQLKS;User ID=sa;Password=sa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-GISFHHL\\MINHANH;Initial Catalog=HR;User ID=sa;Password=sa")]
         public string ChuoiKN {
             get {
                 return ((string)(this["ChuoiKN"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=QLKS;User ID=sa;Password=sa")]
-        public string QLKSConnectionString {
-            get {
-                return ((string)(this["QLKSConnectionString"]));
             }
         }
     }

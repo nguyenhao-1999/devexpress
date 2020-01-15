@@ -303,7 +303,7 @@
             this.btnDichvu.Name = "btnDichvu";
             this.btnDichvu.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnDichvu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDichvu_ItemClick);
+            this.btnDichvu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDichvu_ItemClick_1);
             // 
             // barButtonItem7
             // 

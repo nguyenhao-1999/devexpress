@@ -55,13 +55,14 @@ namespace devexpress.View
         {
             var list = db.DK_Customers;
             var list2 = db.Rooms.ToList();
-            foreach (var color in list2)
+            var list3 = db.Rooms.Where(m => m.Status == 5).ToList();
+            foreach (var item in list2)
             {
                 var roomtang = db.RoomTangs.ToList();
                 foreach (var room in roomtang)
                 {
                     ColorPickEdit c = new ColorPickEdit();
-                    if (Convert.ToInt32(e.Item.Elements[0].Text) == room.Manhom && color.Manhom == room.Manhom)
+                    if (Convert.ToInt32(e.Item.Elements[0].Text) == room.Manhom && item.Manhom == room.Manhom)
                     {
                         c.EditValue = String.Format("{0:X}", room.Mamau);
                         Color mau = c.Color;
@@ -69,12 +70,19 @@ namespace devexpress.View
                     }
                 }
             }
-
+            
+            foreach(var item in list3)
+            {
+                if (Convert.ToInt32(e.Item.Elements[3].Text) == item.Sophong)
+                {
+                    e.Item.Elements[6].Image = Properties.Resources.help20;
+                }
+            }
             if (list.Count() != 0)
             {
                 foreach (var item in list.ToList())
                 {
-                    if (item.IdKH == Convert.ToInt32(e.Item.Elements[3].Text) && item.Daidien == true)
+                    if (item.Sophong == Convert.ToInt32(e.Item.Elements[3].Text) && item.Daidien == true)
                     {
                         e.Item.Elements[4].Text = item.Hoten;
                         e.Item.Elements[5].Text = item.DateCheckin.ToShortDateString();
@@ -119,7 +127,7 @@ namespace devexpress.View
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where !db.DK_Customers.Any(dk => dk.IdKH == r.Sophong)
+                           where r.Status==1
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
@@ -133,7 +141,7 @@ namespace devexpress.View
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where db.DK_Customers.Any(dk => dk.IdKH == r.Sophong && dk.DateCheckin >= datefrom && dk.DateCheckin <= dateto && dk.Daidien == true)
+                           where db.DK_Customers.Any(dk => dk.Sophong == r.Sophong && dk.DateCheckin >= datefrom && dk.DateCheckin <= dateto && dk.Daidien == true)
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
@@ -143,7 +151,17 @@ namespace devexpress.View
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where r.Status == 0
+                           where r.Status == 5
+                           select r;
+                gcData.DataSource = list.ToList();
+                gcData.EndUpdate();
+            }
+            if (rbLoc.SelectedIndex == 4)
+            {
+                gcData.BeginUpdate();
+                gcData.DataSource = null;
+                var list = from r in db.Rooms
+                           where r.Status == 4
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();

@@ -36,7 +36,7 @@
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnDuLieu = new DevExpress.XtraEditors.SimpleButton();
             this.gcDanhSachPhieuDP = new DevExpress.XtraGrid.GridControl();
-            this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gvDanhsachPhieuDP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -54,10 +54,13 @@
             this.grcPhong = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcSLPhong = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcNoiDung = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colSo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colNgayDK = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colHoten = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSachPhieuDP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhsachPhieuDP)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -132,16 +135,16 @@
             // gcDanhSachPhieuDP
             // 
             this.gcDanhSachPhieuDP.Location = new System.Drawing.Point(6, 48);
-            this.gcDanhSachPhieuDP.MainView = this.bandedGridView1;
+            this.gcDanhSachPhieuDP.MainView = this.gvDanhsachPhieuDP;
             this.gcDanhSachPhieuDP.Name = "gcDanhSachPhieuDP";
             this.gcDanhSachPhieuDP.Size = new System.Drawing.Size(1295, 531);
             this.gcDanhSachPhieuDP.TabIndex = 9;
             this.gcDanhSachPhieuDP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.bandedGridView1});
+            this.gvDanhsachPhieuDP});
             // 
-            // bandedGridView1
+            // gvDanhsachPhieuDP
             // 
-            this.bandedGridView1.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gvDanhsachPhieuDP.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1,
             this.gridBand2,
             this.gridBand3,
@@ -153,15 +156,18 @@
             this.grcPhong,
             this.grcSLPhong,
             this.grcNoiDung});
-            this.bandedGridView1.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.gvDanhsachPhieuDP.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.bgrNgay,
             this.brgSoCT,
             this.bgrSoTien,
             this.grcDVT,
             this.bgrSoATM,
-            this.bgrNganHang});
-            this.bandedGridView1.GridControl = this.gcDanhSachPhieuDP;
-            this.bandedGridView1.Name = "bandedGridView1";
+            this.bgrNganHang,
+            this.colSo,
+            this.colNgayDK,
+            this.colHoten});
+            this.gvDanhsachPhieuDP.GridControl = this.gcDanhSachPhieuDP;
+            this.gvDanhsachPhieuDP.Name = "gvDanhsachPhieuDP";
             // 
             // gridBand1
             // 
@@ -309,6 +315,26 @@
             this.grcNoiDung.VisibleIndex = 10;
             this.grcNoiDung.Width = 75;
             // 
+            // colSo
+            // 
+            this.colSo.Caption = "Số";
+            this.colSo.FieldName = "Id";
+            this.colSo.Name = "colSo";
+            this.colSo.Visible = true;
+            // 
+            // colNgayDK
+            // 
+            this.colNgayDK.Caption = "Ngày ĐK";
+            this.colNgayDK.FieldName = "NgayDK";
+            this.colNgayDK.Name = "colNgayDK";
+            this.colNgayDK.Visible = true;
+            // 
+            // colHoten
+            // 
+            this.colHoten.Caption = "Khách hàng";
+            this.colHoten.Name = "colHoten";
+            this.colHoten.Visible = true;
+            // 
             // DanhSachPhieuDP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,7 +347,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSachPhieuDP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhsachPhieuDP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,7 +361,7 @@
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnDuLieu;
         private DevExpress.XtraGrid.GridControl gcDanhSachPhieuDP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridView1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvDanhsachPhieuDP;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
@@ -353,5 +379,8 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grcPhong;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grcSLPhong;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grcNoiDung;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSo;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colNgayDK;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHoten;
     }
 }

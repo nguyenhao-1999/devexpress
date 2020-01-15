@@ -28,6 +28,7 @@ namespace devexpress.View
         }
         List<DK_Customer> lstDK;
         QLKSDbContext db = new QLKSDbContext();
+        int t = 0;
         private void PhieuDatPhongMoi_Load(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
@@ -72,6 +73,7 @@ namespace devexpress.View
                 
             }
             gcDangky.DataSource = lstRoom;
+            t = 1;
         }
 
         private void gvDangky_MasterRowEmpty(object sender, MasterRowEmptyEventArgs e)
@@ -88,7 +90,6 @@ namespace devexpress.View
                 {
                     source.AllowNew = true;
                     lst.Add(new DK_Customer() { IdKH =room.Sophong});
-                MessageBox.Show("" + room.Sophong);
                 }
                 source.DataSource = lst;
             
@@ -104,9 +105,6 @@ namespace devexpress.View
         {
             e.RelationName = "Detail";
         }
-
-        
-
         private void gvPhong_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
             CreateSTT(gvPhong, e);
@@ -243,24 +241,99 @@ namespace devexpress.View
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            for (int j = 0; j < gvDangky.RowCount; j++)
+            string phong = "";
+            if (gcDangky.DataSource == null)
             {
-                GridView dView = gvDangky.GetDetailView(j, 0) as GridView;
-                if(dView==null)
+                MessageBox.Show("Vui lòng chọn phòng để đăng ký");
+                return;
+            }
+            else
+            {
+                if (t == 1)
                 {
-                    MessageBox.Show("Vui lòng nhập thông tin khách hàng đăng ký!");
-                    return;
-                }
-                for (int i = 0; i < dView.RowCount; i++)
-                {
-                    if(dView.GetRowCellValue(i, dView.Columns[0])!=null && dView.GetRowCellValue(i, dView.Columns[1]) != null)
+                    Dangky dk = new Dangky();
+                    dk.NgayDK = Convert.ToDateTime(dateNgay.EditValue.ToString());
+                    dk.NgayCheckin = Convert.ToDateTime(dateCheckin.EditValue.ToString());
+                    dk.NgayCheckout = Convert.ToDateTime(dateCheckout.EditValue.ToString());
+                    dk.SotienUT = Convert.ToDouble(tbDattruoc.Text.ToString());
+                    dk.Sokhach = Convert.ToInt32(spSoKhach.Value.ToString());
+                    dk.Sophong = Convert.ToInt32(spinPhong.Value.ToString());
+                    dk.DaCheckin = false;
+                    dk.Ghichu = tbNoidung.Text.ToString();
+                    dk.HinhthucTT = cbHinhthuc.EditValue.ToString();
+                    dk.Loaitien = cbxLoai.EditValue.ToString();
+                    dk.SoATM = tbSoTK.Text.ToString();
+                    dk.Tygia = Convert.ToInt32(tbTygia.Text.ToString());
+                    dk.MaBank = glueNganhang.EditValue.ToString();
+                    dk.NgayUT = Convert.ToDateTime(dtDattruoc.EditValue.ToString());
+                    QLKSDbContext db = new QLKSDbContext();
+                    db.Dangky.Add(dk);
+                    db.SaveChanges();
+                    var id = db.Dangky.Where(m => m.DaCheckin == false).OrderByDescending(m => m.Id).First();
+                    for (int j = 0; j < gvDangky.RowCount; j++)
                     {
-                        
+                        GridView dView = gvDangky.GetDetailView(j, 0) as GridView;
+                        if (dView == null)
+                        {
+                            MessageBox.Show("Vui lòng nhập thông tin khách hàng đăng ký!");
+                            return;
+                        }
+                        phong.Trim();
+                        phong += gvDangky.GetRowCellValue(j, gvDangky.Columns[0]).ToString();
+                        if (j < gvDangky.RowCount - 1)
+                            phong += ",";
+                        DK_Customer dk_khach = new DK_Customer();
+                        Khach khach = new Khach();
+                        DangKyPhong dk_phong = new DangKyPhong();
+                        for (int i = 0; i < dView.RowCount; i++)
+                        {
+                            if (dView.GetRowCellValue(i, dView.Columns[0]) != null && dView.GetRowCellValue(i, dView.Columns[1]) != null)
+                            {
+                                khach.HoTen = dView.GetRowCellValue(i, dView.Columns[1]).ToString();
+                                khach.SoCMND= dView.GetRowCellValue(i, dView.Columns[0]).ToString();
+                                khach.GioiTnh= Convert.ToBoolean(dView.GetRowCellValue(i, dView.Columns[2]));
+                                khach.MaQT = Convert.ToInt32(dView.GetRowCellValue(i, dView.Columns[3]));
+                                khach.NgaySinh = DateTime.Now;
+                                db.Khach.Add(khach);
+                                db.SaveChanges();
+                                var idkh = db.Khach.OrderByDescending(m => m.Id).First();
+                                dk_khach.IdDK = id.Id;
+                                dk_khach.IdKH = idkh.Id;
+                                dk_khach.Hoten = idkh.HoTen;
+                                dk_khach.CMND = idkh.SoCMND;
+                                dk_khach.Gioitinh = idkh.GioiTnh;
+                                dk_khach.Quoctich = idkh.MaQT;
+                                dk_khach.Sophong = Convert.ToInt32(gvDangky.GetRowCellValue(j, gvDangky.Columns[0]));
+                                dk_khach.DateCheckin = Convert.ToDateTime(dateCheckin.EditValue.ToString());
+                                dk_khach.DateCheckout = Convert.ToDateTime(dateCheckout.EditValue.ToString());
+                                dk_khach.GioCheckin = DateTime.Now.ToShortTimeString();
+                                dk_khach.GioCheckout = "12:00";
+                                db.DK_Customers.Add(dk_khach);
+                                db.SaveChanges();
+                                dk_phong.IDDK = id.Id;
+                                dk_phong.SoPhong= Convert.ToInt32(gvDangky.GetRowCellValue(j, gvDangky.Columns[0]));
+                                dk_phong.NgayCheckIn = Convert.ToDateTime(dateCheckin.EditValue.ToString());
+                                dk_phong.NgayCheckOut = Convert.ToDateTime(dateCheckout.EditValue.ToString());
+                                dk_phong.LoaiTien = id.Loaitien;
+                                dk_phong.TyGia = id.Tygia;
+                                dk_phong.GhiChu = id.Ghichu;
+                                dk_phong.DaCheckIn = id.DaCheckin;
+                                dk_phong.DonGia= Convert.ToInt32(gvDangky.GetRowCellValue(j, gvDangky.Columns[1]));
+                                db.DangKyPhong.Add(dk_phong);
+                                var listP = db.Rooms.Where(m => m.Sophong == dk_phong.SoPhong).First();
+                                listP.Status = 5;
+                            }
+                        }
                     }
+                    var update = db.Dangky.FirstOrDefault(m => m.Id == id.Id);
+                    update.Phong = phong.ToString();
+                    db.SaveChanges();
+                    t = 0;
                 }
             }
             
         }
+
 
         private void cbHinhthuc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -345,6 +418,22 @@ namespace devexpress.View
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tbNoidung_Enter(object sender, EventArgs e)
+        {
+            if (tbNoidung.Text == "Nội dung đăng kí")
+            {
+                tbNoidung.Text = "";
+            }
+        }
+
+        private void tbNoidung_Leave(object sender, EventArgs e)
+        {
+            if (tbNoidung.Text == "")
+            {
+                tbNoidung.Text = "Nội dung đăng kí";
             }
         }
     }
