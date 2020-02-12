@@ -76,6 +76,7 @@ namespace devexpress
             DanhSachPhieuDP tt = new DanhSachPhieuDP();
 
             ViewChildForm(tt);
+            tt.Width = this.Width;
 
         }
 
@@ -165,6 +166,13 @@ namespace devexpress
         {
             DichVu dv = new DichVu();
             ViewChildForm(dv);
+        }
+
+        private void barsubPDPM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhieuDatPhongMoi dp = new PhieuDatPhongMoi();
+            dp.StartPosition = FormStartPosition.CenterScreen;
+            dp.ShowDialog();
         }
 
         //private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

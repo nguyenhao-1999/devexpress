@@ -25,7 +25,7 @@ namespace devexpress.Model
         [Required]
         public string SoCMND { get; set; }
         public string DiaChi { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
         public string GhhiChu { get; set; }
         public int SoATM { get; set; }

@@ -27,7 +27,6 @@ namespace devexpress.Model
         [Required]
         [Phone]
         public string Sophone { get; set; }
-        [Required]
         public double Giaphong { get; set; }
         [Required]
         public int Status { get; set; }

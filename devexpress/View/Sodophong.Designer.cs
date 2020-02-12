@@ -516,7 +516,7 @@
             // rbLoc
             // 
             this.rbLoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbLoc.Location = new System.Drawing.Point(371, 0);
+            this.rbLoc.Location = new System.Drawing.Point(205, 0);
             this.rbLoc.MenuManager = this.barManager1;
             this.rbLoc.Name = "rbLoc";
             this.rbLoc.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -527,7 +527,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng có khách"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng đặt trước"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Phòng đang sữa chửa")});
-            this.rbLoc.Size = new System.Drawing.Size(626, 33);
+            this.rbLoc.Size = new System.Drawing.Size(792, 33);
             this.rbLoc.TabIndex = 1;
             this.rbLoc.SelectedIndexChanged += new System.EventHandler(this.rbLoc_SelectedIndexChanged);
             // 

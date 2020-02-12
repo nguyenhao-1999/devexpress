@@ -26,7 +26,6 @@ namespace devexpress.View
         {
             var list = (from p in db.Rooms
                         join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-
                         select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
             gcDataList.DataSource = list;
             var listtang = db.RoomTangs.ToList();

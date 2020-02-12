@@ -348,6 +348,7 @@
             this.barsubPDPM.Id = 13;
             this.barsubPDPM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barsubPDPM.ImageOptions.Image")));
             this.barsubPDPM.Name = "barsubPDPM";
+            this.barsubPDPM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barsubPDPM_ItemClick);
             // 
             // barsubSoTD
             // 

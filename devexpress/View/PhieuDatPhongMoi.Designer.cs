@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuDatPhongMoi));
-            DevExpress.Utils.SimpleContextButton simpleContextButton2 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton1 = new DevExpress.Utils.SimpleContextButton();
             this.gvKhach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoten = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,6 +42,7 @@
             this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenQT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDKH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDangky = new DevExpress.XtraGrid.GridControl();
             this.gvDangky = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bgPhong = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,6 +51,13 @@
             this.bgSonguoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bgStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.glueDoitac = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gvDoitac = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMadt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHotendt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhonedt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmaildt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDoitac = new DevExpress.XtraGrid.Columns.GridColumn();
             this.glueNganhang = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gvNganhang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Ma = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,12 +104,6 @@
             this.btnInPhieu = new DevExpress.XtraEditors.SimpleButton();
             this.btnCheckin = new DevExpress.XtraEditors.SimpleButton();
             this.btnTaoMoi = new DevExpress.XtraEditors.SimpleButton();
-            this.glueDoitac = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gvDoitac = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMadt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHotendt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPhonedt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmaildt = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvKhach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckGioitinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbQuoctich)).BeginInit();
@@ -110,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDangky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glueDoitac.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDoitac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glueNganhang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNganhang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinPhong.Properties)).BeginInit();
@@ -137,8 +141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.glueDoitac.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDoitac)).BeginInit();
             this.SuspendLayout();
             // 
             // gvKhach
@@ -148,7 +150,8 @@
             this.colHoten,
             this.bgGioitinh,
             this.bgQuoctich,
-            this.colIDKH});
+            this.colIDKH,
+            this.colId});
             this.gvKhach.GridControl = this.gcDangky;
             this.gvKhach.IndicatorWidth = 40;
             this.gvKhach.Name = "gvKhach";
@@ -231,17 +234,23 @@
             // colIDKH
             // 
             this.colIDKH.Caption = "IDKH";
-            this.colIDKH.FieldName = "IdKH";
+            this.colIDKH.FieldName = "Sophong";
             this.colIDKH.Name = "colIDKH";
+            // 
+            // colId
+            // 
+            this.colId.Caption = "Id";
+            this.colId.FieldName = "Id";
+            this.colId.Name = "colId";
             // 
             // gcDangky
             // 
             this.gcDangky.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            gridLevelNode2.LevelTemplate = this.gvKhach;
-            gridLevelNode2.RelationName = "Detail";
+            gridLevelNode1.LevelTemplate = this.gvKhach;
+            gridLevelNode1.RelationName = "Detail";
             this.gcDangky.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcDangky.Location = new System.Drawing.Point(521, 0);
             this.gcDangky.MainView = this.gvDangky;
             this.gcDangky.Name = "gcDangky";
@@ -271,6 +280,7 @@
             this.gvDangky.Name = "gvDangky";
             this.gvDangky.OptionsDetail.AllowExpandEmptyDetails = true;
             this.gvDangky.OptionsDetail.ShowDetailTabs = false;
+            this.gvDangky.OptionsDetail.ShowEmbeddedDetailIndent = DevExpress.Utils.DefaultBoolean.False;
             this.gvDangky.OptionsView.ShowChildrenInGroupPanel = true;
             this.gvDangky.OptionsView.ShowFooter = true;
             this.gvDangky.OptionsView.ShowGroupPanel = false;
@@ -293,6 +303,7 @@
             // bgGiaphong
             // 
             this.bgGiaphong.Caption = "Giá phòng";
+            this.bgGiaphong.FieldName = "Giaphong";
             this.bgGiaphong.Name = "bgGiaphong";
             this.bgGiaphong.Visible = true;
             this.bgGiaphong.VisibleIndex = 1;
@@ -355,6 +366,75 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1138, 108);
             this.panelControl1.TabIndex = 0;
+            // 
+            // glueDoitac
+            // 
+            this.glueDoitac.EditValue = "";
+            this.glueDoitac.Location = new System.Drawing.Point(442, 10);
+            this.glueDoitac.Name = "glueDoitac";
+            this.glueDoitac.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.glueDoitac.Properties.Appearance.ForeColor = System.Drawing.Color.Gray;
+            this.glueDoitac.Properties.Appearance.Options.UseFont = true;
+            this.glueDoitac.Properties.Appearance.Options.UseForeColor = true;
+            this.glueDoitac.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.glueDoitac.Properties.NullText = "Chọn khách hàng ";
+            this.glueDoitac.Properties.View = this.gvDoitac;
+            this.glueDoitac.Size = new System.Drawing.Size(188, 24);
+            this.glueDoitac.TabIndex = 32;
+            // 
+            // gvDoitac
+            // 
+            this.gvDoitac.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMadt,
+            this.colHotendt,
+            this.colPhonedt,
+            this.colEmaildt,
+            this.colDoitac});
+            this.gvDoitac.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gvDoitac.Name = "gvDoitac";
+            this.gvDoitac.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvDoitac.OptionsView.ShowGroupPanel = false;
+            // 
+            // colMadt
+            // 
+            this.colMadt.Caption = "Mã";
+            this.colMadt.FieldName = "Id";
+            this.colMadt.Name = "colMadt";
+            this.colMadt.Visible = true;
+            this.colMadt.VisibleIndex = 0;
+            // 
+            // colHotendt
+            // 
+            this.colHotendt.Caption = "Họ tên";
+            this.colHotendt.FieldName = "HoTen";
+            this.colHotendt.Name = "colHotendt";
+            this.colHotendt.Visible = true;
+            this.colHotendt.VisibleIndex = 1;
+            // 
+            // colPhonedt
+            // 
+            this.colPhonedt.Caption = "Phone";
+            this.colPhonedt.FieldName = "Phone";
+            this.colPhonedt.Name = "colPhonedt";
+            this.colPhonedt.Visible = true;
+            this.colPhonedt.VisibleIndex = 2;
+            // 
+            // colEmaildt
+            // 
+            this.colEmaildt.Caption = "Email";
+            this.colEmaildt.FieldName = "Email";
+            this.colEmaildt.Name = "colEmaildt";
+            this.colEmaildt.Visible = true;
+            this.colEmaildt.VisibleIndex = 3;
+            // 
+            // colDoitac
+            // 
+            this.colDoitac.Caption = "Đơn vị";
+            this.colDoitac.FieldName = "DonVi";
+            this.colDoitac.Name = "colDoitac";
+            this.colDoitac.Visible = true;
+            this.colDoitac.VisibleIndex = 4;
             // 
             // glueNganhang
             // 
@@ -483,9 +563,9 @@
             this.cbxLoai.Properties.Appearance.Options.UseFont = true;
             this.cbxLoai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            simpleContextButton2.Id = new System.Guid("0af4613e-5014-4a7b-b4a6-5ed12f532e09");
-            simpleContextButton2.Name = "VNĐ";
-            this.cbxLoai.Properties.ContextButtons.Add(simpleContextButton2);
+            simpleContextButton1.Id = new System.Guid("0af4613e-5014-4a7b-b4a6-5ed12f532e09");
+            simpleContextButton1.Name = "VNĐ";
+            this.cbxLoai.Properties.ContextButtons.Add(simpleContextButton1);
             this.cbxLoai.Properties.Items.AddRange(new object[] {
             "VNĐ",
             "USD"});
@@ -571,7 +651,7 @@
             // 
             // dateCheckin
             // 
-            this.dateCheckin.EditValue = new System.DateTime(2019, 12, 19, 9, 23, 36, 0);
+            this.dateCheckin.EditValue = new System.DateTime(2020, 1, 20, 9, 23, 36, 0);
             this.dateCheckin.Location = new System.Drawing.Point(216, 43);
             this.dateCheckin.Name = "dateCheckin";
             this.dateCheckin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -585,7 +665,7 @@
             // 
             // dateCheckout
             // 
-            this.dateCheckout.EditValue = null;
+            this.dateCheckout.EditValue = new System.DateTime(2020, 1, 20, 11, 8, 49, 0);
             this.dateCheckout.Location = new System.Drawing.Point(216, 77);
             this.dateCheckout.Name = "dateCheckout";
             this.dateCheckout.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -920,62 +1000,6 @@
             this.btnTaoMoi.Text = "Tạo mới";
             this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
             // 
-            // glueDoitac
-            // 
-            this.glueDoitac.EditValue = "Chọn đối tác tìm kiếm";
-            this.glueDoitac.Location = new System.Drawing.Point(442, 10);
-            this.glueDoitac.Name = "glueDoitac";
-            this.glueDoitac.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.glueDoitac.Properties.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.glueDoitac.Properties.Appearance.Options.UseFont = true;
-            this.glueDoitac.Properties.Appearance.Options.UseForeColor = true;
-            this.glueDoitac.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.glueDoitac.Properties.NullText = "Chọn đối tác tìm kiếm";
-            this.glueDoitac.Properties.View = this.gvDoitac;
-            this.glueDoitac.Size = new System.Drawing.Size(188, 24);
-            this.glueDoitac.TabIndex = 32;
-            // 
-            // gvDoitac
-            // 
-            this.gvDoitac.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMadt,
-            this.colHotendt,
-            this.colPhonedt,
-            this.colEmaildt});
-            this.gvDoitac.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gvDoitac.Name = "gvDoitac";
-            this.gvDoitac.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvDoitac.OptionsView.ShowGroupPanel = false;
-            // 
-            // colMadt
-            // 
-            this.colMadt.Caption = "Mã";
-            this.colMadt.Name = "colMadt";
-            this.colMadt.Visible = true;
-            this.colMadt.VisibleIndex = 0;
-            // 
-            // colHotendt
-            // 
-            this.colHotendt.Caption = "Họ tên";
-            this.colHotendt.Name = "colHotendt";
-            this.colHotendt.Visible = true;
-            this.colHotendt.VisibleIndex = 1;
-            // 
-            // colPhonedt
-            // 
-            this.colPhonedt.Caption = "Phone";
-            this.colPhonedt.Name = "colPhonedt";
-            this.colPhonedt.Visible = true;
-            this.colPhonedt.VisibleIndex = 2;
-            // 
-            // colEmaildt
-            // 
-            this.colEmaildt.Caption = "Email";
-            this.colEmaildt.Name = "colEmaildt";
-            this.colEmaildt.Visible = true;
-            this.colEmaildt.VisibleIndex = 3;
-            // 
             // PhieuDatPhongMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -986,6 +1010,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "PhieuDatPhongMoi";
             this.Text = "Phiếu đặt phòng mới";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhieuDatPhongMoi_FormClosing);
             this.Load += new System.EventHandler(this.PhieuDatPhongMoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvKhach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckGioitinh)).EndInit();
@@ -996,6 +1021,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glueDoitac.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDoitac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.glueNganhang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNganhang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinPhong.Properties)).EndInit();
@@ -1023,8 +1050,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.glueDoitac.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDoitac)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1040,22 +1065,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit dateCheckin;
-        private DevExpress.XtraEditors.DateEdit dateCheckout;
-        private DevExpress.XtraEditors.DateEdit dateNgay;
-        private DevExpress.XtraEditors.TextEdit txtSo;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.TextEdit tbSoTK;
-        private DevExpress.XtraEditors.TextEdit tbTygia;
-        private DevExpress.XtraEditors.ComboBoxEdit cbHinhthuc;
-        private DevExpress.XtraEditors.ComboBoxEdit cbxLoai;
-        private DevExpress.XtraEditors.DateEdit dtDattruoc;
-        private DevExpress.XtraEditors.TextEdit tbDattruoc;
-        private DevExpress.XtraEditors.TextEdit edtDienThoai;
-        private DevExpress.XtraEditors.SpinEdit spSoKhach;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl gcDangky;
-        private DevExpress.XtraGrid.GridControl gcPhong;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.SimpleButton btnXoaPhong;
         private DevExpress.XtraEditors.SimpleButton btnThuTien;
@@ -1066,11 +1077,7 @@
         private DevExpress.XtraEditors.SimpleButton btnInPhieu;
         private DevExpress.XtraEditors.SimpleButton btnCheckin;
         private DevExpress.XtraEditors.SimpleButton btnTaoMoi;
-        private DevExpress.XtraEditors.SpinEdit spinPhong;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvPhong;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvDangky;
         private DevExpress.XtraEditors.SimpleButton btnThemkhach;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvKhach;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckGioitinh;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit cbQuoctich;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
@@ -1091,16 +1098,36 @@
         private DevExpress.XtraGrid.Columns.GridColumn colGiaphong;
         private DevExpress.XtraGrid.Columns.GridColumn colSogiuong;
         private DevExpress.XtraGrid.Columns.GridColumn colSonguoi;
-        private DevExpress.XtraEditors.GridLookUpEdit glueNganhang;
         private DevExpress.XtraGrid.Views.Grid.GridView gvNganhang;
         private DevExpress.XtraGrid.Columns.GridColumn Ma;
         private DevExpress.XtraGrid.Columns.GridColumn TenBank;
-        private DevExpress.XtraEditors.TextEdit tbNoidung;
-        private DevExpress.XtraEditors.GridLookUpEdit glueDoitac;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDoitac;
         private DevExpress.XtraGrid.Columns.GridColumn colMadt;
         private DevExpress.XtraGrid.Columns.GridColumn colHotendt;
         private DevExpress.XtraGrid.Columns.GridColumn colPhonedt;
         private DevExpress.XtraGrid.Columns.GridColumn colEmaildt;
+        public DevExpress.XtraEditors.DateEdit dateCheckin;
+        public DevExpress.XtraEditors.DateEdit dateCheckout;
+        public DevExpress.XtraEditors.DateEdit dateNgay;
+        public DevExpress.XtraEditors.TextEdit txtSo;
+        public DevExpress.XtraEditors.TextEdit tbSoTK;
+        public DevExpress.XtraEditors.TextEdit tbTygia;
+        public DevExpress.XtraEditors.ComboBoxEdit cbHinhthuc;
+        public DevExpress.XtraEditors.ComboBoxEdit cbxLoai;
+        public DevExpress.XtraEditors.DateEdit dtDattruoc;
+        public DevExpress.XtraEditors.TextEdit tbDattruoc;
+        public DevExpress.XtraEditors.TextEdit edtDienThoai;
+        public DevExpress.XtraEditors.SpinEdit spSoKhach;
+        public DevExpress.XtraGrid.GridControl gcDangky;
+        public DevExpress.XtraGrid.GridControl gcPhong;
+        public DevExpress.XtraEditors.SpinEdit spinPhong;
+        public DevExpress.XtraEditors.GridLookUpEdit glueNganhang;
+        public DevExpress.XtraEditors.TextEdit tbNoidung;
+        public DevExpress.XtraEditors.GridLookUpEdit glueDoitac;
+        public DevExpress.XtraGrid.Views.Grid.GridView gvPhong;
+        public DevExpress.XtraGrid.Views.Grid.GridView gvDangky;
+        public DevExpress.XtraGrid.Views.Grid.GridView gvKhach;
+        private DevExpress.XtraGrid.Columns.GridColumn colDoitac;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
     }
 }
