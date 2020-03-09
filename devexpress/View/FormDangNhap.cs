@@ -31,14 +31,14 @@ namespace devexpress.View
 
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
-            string username = txtUserName.EditValue.ToString();
-            string password = txtPassWord.EditValue.ToString();
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(txtUserName.EditValue.ToString()) || string.IsNullOrEmpty(txtPassWord.EditValue.ToString()))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không được để trống!", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
+            string username = txtUserName.EditValue.ToString();
+            string password = txtPassWord.EditValue.ToString();
             if (LoginDN(username,password))
             {
                 Form1 f = new Form1();

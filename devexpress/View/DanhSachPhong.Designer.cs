@@ -53,6 +53,7 @@
             this.grcVND = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcUSD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Id = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.glueLoaiPhong = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gvLoaiPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaloai = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,7 +70,7 @@
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.Id = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelgrv)).BeginInit();
@@ -96,6 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Controls.Add(this.btnNhom);
             this.panelControl1.Controls.Add(this.btnXoa);
             this.panelControl1.Controls.Add(this.btnInPhieu);
@@ -109,7 +111,7 @@
             // btnNhom
             // 
             this.btnNhom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhom.ImageOptions.Image")));
-            this.btnNhom.Location = new System.Drawing.Point(443, -1);
+            this.btnNhom.Location = new System.Drawing.Point(527, 0);
             this.btnNhom.Name = "btnNhom";
             this.btnNhom.Size = new System.Drawing.Size(113, 41);
             this.btnNhom.TabIndex = 2;
@@ -121,7 +123,7 @@
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnXoa.Appearance.Options.UseFont = true;
             this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(339, 0);
+            this.btnXoa.Location = new System.Drawing.Point(433, 1);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 40);
             this.btnXoa.TabIndex = 1;
@@ -159,6 +161,7 @@
             this.btnThem.Size = new System.Drawing.Size(94, 40);
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panelgrv
             // 
@@ -207,6 +210,7 @@
             this.gvDataList.OptionsView.ShowGroupPanel = false;
             this.gvDataList.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDataList_CustomDrawRowIndicator);
             this.gvDataList.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gvDataList_CustomRowCellEdit);
+            this.gvDataList.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvDataList_InitNewRow);
             // 
             // gridBand3
             // 
@@ -342,6 +346,13 @@
             this.grcUSD.Visible = true;
             this.grcUSD.Width = 98;
             // 
+            // Id
+            // 
+            this.Id.Caption = "Id";
+            this.Id.FieldName = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = true;
+            // 
             // glueLoaiPhong
             // 
             this.glueLoaiPhong.AutoHeight = false;
@@ -473,12 +484,17 @@
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.Images.SetKeyName(0, "Folder22.png");
             // 
-            // Id
+            // btnLuu
             // 
-            this.Id.Caption = "Id";
-            this.Id.FieldName = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = true;
+            this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnLuu.Appearance.Options.UseFont = true;
+            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnLuu.Location = new System.Drawing.Point(339, 0);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(88, 40);
+            this.btnLuu.TabIndex = 3;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // DanhSachPhong
             // 
@@ -556,5 +572,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit glueLoai;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Id;
+        private DevExpress.XtraEditors.SimpleButton btnLuu;
     }
 }
