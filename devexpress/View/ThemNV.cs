@@ -58,16 +58,16 @@ namespace devexpress.View
                 hasPass += item;
             }
             NhanVien nv = new NhanVien();
-            nv.MaNV = manv;
-            nv.SoCMND = Convert.ToInt32(cmnd);
-            nv.NgaySinh = Convert.ToDateTime(dateEditNS.EditValue).ToShortDateString();
-            nv.DienThoai = Convert.ToInt32(txtSDT.EditValue);
-            nv.MaNhom = cbNhom.EditValue.ToString();
-            nv.TaiKhoan = tk;
-            nv.Password = mk;
-            nv.HoTen = hoten;
-            nv.DiaChi = txtDiachi.EditValue.ToString();
-            db.NhanVien.Add(nv);
+            //nv.MaNV = manv;
+            //nv.SoCMND = Convert.ToInt32(cmnd);
+            //nv.NgaySinh = Convert.ToDateTime(dateEditNS.EditValue).ToShortDateString();
+            //nv.DienThoai = Convert.ToInt32(txtSDT.EditValue);
+            //nv.MaNhom = cbNhom.EditValue.ToString();
+            //nv.TaiKhoan = tk;
+            //nv.Password = mk;
+            //nv.HoTen = hoten;
+            //nv.DiaChi = txtDiachi.EditValue.ToString();
+            //db.NhanVien.Add(nv);
             db.SaveChanges();
         }
 

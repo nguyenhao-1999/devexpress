@@ -242,6 +242,12 @@ namespace devexpress
             }
         }
 
+        private void barSubNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            View.NhanVien nv = new View.NhanVien();
+            ViewChildForm(nv);
+        }
+
         //private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         //{
         //    DichVu dv = new DichVu();

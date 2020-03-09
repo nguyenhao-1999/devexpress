@@ -70,6 +70,7 @@
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnHoSoPhong = new DevExpress.XtraBars.BarButtonItem();
             this.khoa = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubNhanVien = new DevExpress.XtraBars.BarSubItem();
             this.hethong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -80,6 +81,7 @@
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -157,10 +159,10 @@
             this.barsubWS,
             this.barSubItem1,
             this.btnHoSoPhong,
-            this.khoa});
+            this.khoa,
+            this.barSubNhanVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 39;
+            this.ribbonControl1.MaxItemId = 40;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.hethong,
@@ -169,7 +171,7 @@
             this.CongCu,
             this.TroGiup});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(1311, 194);
+            this.ribbonControl1.Size = new System.Drawing.Size(1337, 162);
             this.ribbonControl1.StatusBar = this.rbStatus;
             // 
             // imageCL1
@@ -537,6 +539,16 @@
             this.khoa.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // barSubNhanVien
+            // 
+            this.barSubNhanVien.Caption = "Nhân viên";
+            this.barSubNhanVien.Id = 39;
+            this.barSubNhanVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubNhanVien.ImageOptions.Image")));
+            this.barSubNhanVien.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.barSubNhanVien.ItemAppearance.Normal.Options.UseFont = true;
+            this.barSubNhanVien.Name = "barSubNhanVien";
+            this.barSubNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubNhanVien_ItemClick);
+            // 
             // hethong
             // 
             this.hethong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -577,7 +589,8 @@
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup15});
             this.QuanLi.Image = ((System.Drawing.Image)(resources.GetObject("QuanLi.Image")));
             this.QuanLi.Name = "QuanLi";
             this.QuanLi.Text = "Quản lý";
@@ -617,6 +630,12 @@
             this.ribbonPageGroup9.ItemLinks.Add(this.barsubDsPXTH);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.Text = "Hoạt động";
+            // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.ItemLinks.Add(this.barSubNhanVien);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.Text = "ribbonPageGroup15";
             // 
             // BaoCao
             // 
@@ -690,10 +709,10 @@
             // 
             // rbStatus
             // 
-            this.rbStatus.Location = new System.Drawing.Point(1, 362);
+            this.rbStatus.Location = new System.Drawing.Point(1, 370);
             this.rbStatus.Name = "rbStatus";
             this.rbStatus.Ribbon = this.ribbonControl1;
-            this.rbStatus.Size = new System.Drawing.Size(1230, 35);
+            this.rbStatus.Size = new System.Drawing.Size(1230, 27);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -703,20 +722,22 @@
             // 
             this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDate.Enabled = false;
-            this.txtDate.Location = new System.Drawing.Point(1040, 48);
+            this.txtDate.Location = new System.Drawing.Point(1104, 39);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDate.MenuManager = this.ribbonControl1;
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtDate.Properties.Appearance.Options.UseForeColor = true;
             this.txtDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.txtDate.Size = new System.Drawing.Size(100, 22);
+            this.txtDate.Size = new System.Drawing.Size(86, 20);
             this.txtDate.TabIndex = 2;
             // 
             // txtGio
             // 
             this.txtGio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGio.Enabled = false;
-            this.txtGio.Location = new System.Drawing.Point(1147, 49);
+            this.txtGio.Location = new System.Drawing.Point(1196, 40);
+            this.txtGio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGio.MenuManager = this.ribbonControl1;
             this.txtGio.Name = "txtGio";
             this.txtGio.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -724,7 +745,7 @@
             this.txtGio.Properties.Appearance.Options.UseBackColor = true;
             this.txtGio.Properties.Appearance.Options.UseForeColor = true;
             this.txtGio.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.txtGio.Size = new System.Drawing.Size(89, 22);
+            this.txtGio.Size = new System.Drawing.Size(76, 20);
             this.txtGio.TabIndex = 3;
             // 
             // panelControl1
@@ -736,18 +757,20 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.btnChuphinh);
             this.panelControl1.Controls.Add(this.btnKhoa);
-            this.panelControl1.Location = new System.Drawing.Point(0, 689);
+            this.panelControl1.Location = new System.Drawing.Point(0, 554);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1311, 77);
+            this.panelControl1.Size = new System.Drawing.Size(1337, 63);
             this.panelControl1.TabIndex = 5;
             // 
             // btnChuphinh
             // 
             this.btnChuphinh.ImageOptions.Image = global::devexpress.Properties.Resources.camera_icon__1_;
             this.btnChuphinh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnChuphinh.Location = new System.Drawing.Point(12, 7);
+            this.btnChuphinh.Location = new System.Drawing.Point(10, 6);
+            this.btnChuphinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChuphinh.Name = "btnChuphinh";
-            this.btnChuphinh.Size = new System.Drawing.Size(98, 65);
+            this.btnChuphinh.Size = new System.Drawing.Size(84, 53);
             this.btnChuphinh.TabIndex = 1;
             this.btnChuphinh.Text = "F3-Chụp hình";
             this.btnChuphinh.Click += new System.EventHandler(this.btnChuphinh_Click);
@@ -756,9 +779,10 @@
             // 
             this.btnKhoa.ImageOptions.Image = global::devexpress.Properties.Resources.modify_key_icon;
             this.btnKhoa.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnKhoa.Location = new System.Drawing.Point(130, 7);
+            this.btnKhoa.Location = new System.Drawing.Point(111, 6);
+            this.btnKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKhoa.Name = "btnKhoa";
-            this.btnKhoa.Size = new System.Drawing.Size(76, 65);
+            this.btnKhoa.Size = new System.Drawing.Size(65, 53);
             this.btnKhoa.TabIndex = 0;
             this.btnKhoa.Text = "F11-Khóa";
             this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
@@ -766,22 +790,24 @@
             // cameraControl1
             // 
             this.cameraControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cameraControl1.Location = new System.Drawing.Point(12, 239);
+            this.cameraControl1.Location = new System.Drawing.Point(10, 194);
+            this.cameraControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cameraControl1.Name = "cameraControl1";
-            this.cameraControl1.Size = new System.Drawing.Size(617, 376);
+            this.cameraControl1.Size = new System.Drawing.Size(529, 306);
             this.cameraControl1.TabIndex = 7;
             this.cameraControl1.Text = "cameraControl1";
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.Location = new System.Drawing.Point(675, 239);
+            this.pictureEdit1.Location = new System.Drawing.Point(579, 194);
+            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.MenuManager = this.ribbonControl1;
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
-            this.pictureEdit1.Size = new System.Drawing.Size(624, 376);
+            this.pictureEdit1.Size = new System.Drawing.Size(535, 306);
             this.pictureEdit1.TabIndex = 8;
             // 
             // timeClock
@@ -793,21 +819,23 @@
             // 
             this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserName.Enabled = false;
-            this.txtUserName.Location = new System.Drawing.Point(934, 49);
+            this.txtUserName.Location = new System.Drawing.Point(1014, 40);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.MenuManager = this.ribbonControl1;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtUserName.Properties.Appearance.Options.UseForeColor = true;
             this.txtUserName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.txtUserName.Size = new System.Drawing.Size(100, 22);
+            this.txtUserName.Size = new System.Drawing.Size(86, 20);
             this.txtUserName.TabIndex = 10;
             // 
             // txtIdNhanvien
             // 
-            this.txtIdNhanvien.Location = new System.Drawing.Point(828, 49);
+            this.txtIdNhanvien.Location = new System.Drawing.Point(710, 40);
+            this.txtIdNhanvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdNhanvien.MenuManager = this.ribbonControl1;
             this.txtIdNhanvien.Name = "txtIdNhanvien";
-            this.txtIdNhanvien.Size = new System.Drawing.Size(100, 22);
+            this.txtIdNhanvien.Size = new System.Drawing.Size(86, 20);
             this.txtIdNhanvien.TabIndex = 11;
             this.txtIdNhanvien.Visible = false;
             // 
@@ -816,9 +844,9 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 769);
+            this.ClientSize = new System.Drawing.Size(1337, 619);
             this.Controls.Add(this.txtIdNhanvien);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.pictureEdit1);
@@ -828,7 +856,6 @@
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.rbStatus;
@@ -924,6 +951,8 @@
         private System.Windows.Forms.Timer timeClock;
         public DevExpress.XtraEditors.TextEdit txtUserName;
         public DevExpress.XtraEditors.TextEdit txtIdNhanvien;
+        private DevExpress.XtraBars.BarSubItem barSubNhanVien;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
     }
 }
 

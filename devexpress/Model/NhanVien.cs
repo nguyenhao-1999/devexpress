@@ -14,7 +14,6 @@ namespace devexpress.Model
         [Key]
         [Required]
         public int Id { get; set; }
-        [Required]
         public string MaNhom { get; set; }
         [Required]
         public string MaNV { get; set; }

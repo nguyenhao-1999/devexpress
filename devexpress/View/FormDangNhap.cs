@@ -77,7 +77,7 @@ namespace devexpress.View
             byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
             byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
             string hasPass = "";
-            foreach(byte item in hasData)
+            foreach (byte item in hasData)
             {
                 hasPass += item;
             }
