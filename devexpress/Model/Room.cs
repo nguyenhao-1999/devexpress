@@ -30,6 +30,7 @@ namespace devexpress.Model
         public double Giaphong { get; set; }
         [Required]
         public int Status { get; set; }
-
+        public decimal? TienPVND { get; set; }
+        public decimal? TienPUSD { get; set; }
     }
 }

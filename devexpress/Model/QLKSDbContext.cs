@@ -34,5 +34,11 @@ namespace devexpress.Model
         public virtual DbSet<ThietBiPhong> ThietBiPhong { get; set; }
         public virtual DbSet<ThietBi> ThietBi { get; set; }
         public virtual DbSet<BoPhan> BoPhan { get; set; }
+        public virtual DbSet<Phong> Phong { get; set; }
+        public virtual DbSet<PhongClient> PhongClients { get; set; }
+        public virtual DbSet<PhongDV> PhongDVs { get; set; }
+        public virtual DbSet<PhongS> PhongS { get; set; }
+        public virtual DbSet<PhongTB> PhongTBs { get; set; }
+        public virtual DbSet<DichvuN> DichvuNs { get; set; }
     }
 }

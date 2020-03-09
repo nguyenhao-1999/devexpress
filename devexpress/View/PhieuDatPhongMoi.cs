@@ -30,6 +30,7 @@ namespace devexpress.View
         List<DK_Customer> lstDK;
         QLKSDbContext db = new QLKSDbContext();
         public int t = 0;
+        int tam = 0;
         private void PhieuDatPhongMoi_Load(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
@@ -222,7 +223,7 @@ namespace devexpress.View
             gcDangky.DataSource = null;
             gcDangky.EndUpdate();
             gvPhong.ClearSelection();
-            t = 2;
+            tam = 2;
         }
         List<DangKyPhong> lstdkp = new List<DangKyPhong>();
         List<DK_Customer> lstdkk = new List<DK_Customer>();
@@ -245,7 +246,7 @@ namespace devexpress.View
                 var dkk = db.DK_Customers.FirstOrDefault(m => m.Id == id);
                 lstdkk.Add(dkk);
             }
-            t = 2;
+            tam = 2;
 
         }
         private void btnXoaPhong_Click(object sender, EventArgs e)
@@ -418,8 +419,6 @@ namespace devexpress.View
                                     dk_phong.DaCheckIn = id.DaCheckin;
                                     dk_phong.DonGia = Convert.ToInt32(gvDangky.GetRowCellValue(j, gvDangky.Columns[1]));
                                     db.DangKyPhong.Add(dk_phong);
-                                    var listP = db.Rooms.Where(m => m.Sophong == dk_phong.SoPhong).First();
-                                    listP.Status = 5;
                                 }
                             }
                         }
@@ -512,8 +511,6 @@ namespace devexpress.View
                                         dk_phong.DaCheckIn = false;
                                         dk_phong.DonGia = Convert.ToInt32(gvDangky.GetRowCellValue(j, gvDangky.Columns[1]));
                                         db.DangKyPhong.Add(dk_phong);
-                                        var listP = db.Rooms.Where(m => m.Sophong == dk_phong.SoPhong).First();
-                                        listP.Status = 5;
                                     }
                                 }
                             }
@@ -629,7 +626,7 @@ namespace devexpress.View
                     }
 
                 }
-                else if (t == 2)
+                if (tam == 2)
                 {
                     if (txtSo.Text != null)
                     {

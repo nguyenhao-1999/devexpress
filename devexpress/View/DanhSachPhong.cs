@@ -24,9 +24,11 @@ namespace devexpress.View
 
         private void DanhSachPhong_Load(object sender, EventArgs e)
         {
-            var list = (from p in db.Rooms
-                        join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                        select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
+            //var list = (from p in db.Rooms
+            //            from pc in db.RoomCategorys
+            //            where  p.Maloai == pc.Maloai
+            //            select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai,p.TienPVND,p.TienPUSD }).ToList();
+            var list = db.Rooms.ToList();
             gcDataList.DataSource = list;
             var listtang = db.RoomTangs.ToList();
             treeList1.SelectImageList = imageCollection1;
@@ -90,33 +92,70 @@ namespace devexpress.View
 
         private void treeList1_CustomDrawNodeCell(object sender, DevExpress.XtraTreeList.CustomDrawNodeCellEventArgs e)
         {
+            var listloai = db.RoomCategorys.ToList();
+            glueLoai.DataSource = listloai;
+            glueLoai.DisplayMember = "Tenloai";
+            glueLoai.ValueMember = "Maloai";
             TreeList tree = sender as TreeList;
             if (e.Node == tree.FocusedNode)
             {
                 if (e.CellText != "Tất cả các phòng")
                 {
                     gcDataList.BeginUpdate();
-                    gcDataList.DataSource = null;
                     var list = (from p in db.Rooms
                                 join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
                                 join pt in db.RoomTangs on p.Manhom equals pt.Manhom
                                 where pt.Vitri == e.CellValue.ToString()
-                                select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
+                                select p).ToList();
                     gcDataList.DataSource = list;
                     gcDataList.EndUpdate();
                 }
                 else
                 {
                     gcDataList.BeginUpdate();
-                    gcDataList.DataSource = null;
                     var list = (from p in db.Rooms
-                                join pc in db.RoomCategorys on p.Maloai equals pc.Maloai
-                                join pt in db.RoomTangs on p.Manhom equals pt.Manhom
-                                select new { p.Sophong, p.Sogiuong, p.Songuoi, pc.Tenloai }).ToList();
+                                from pc in db.RoomCategorys
+                                where p.Maloai== pc.Maloai
+                                select p).ToList();
                     gcDataList.DataSource = list;
                     gcDataList.EndUpdate();
                 }
             }
+        }
+
+        private void gvDataList_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            var tienVND = Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[3]));
+            var tienUSD = Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[4]));
+            if (tienVND>0)
+            {
+                if(tienVND%22000>0)
+                {
+                    gvDataList.SetRowCellValue(e.RowHandle, gvDataList.Columns[4], tienVND / 22000+1);
+                }
+                else
+                {
+                    gvDataList.SetRowCellValue(e.RowHandle, gvDataList.Columns[4], tienVND / 22000);
+                }
+                
+            }
+            else if (tienUSD > 0)
+            {
+                gvDataList.SetRowCellValue(e.RowHandle, gvDataList.Columns[3], tienUSD * 22000);
+            }
+            if(tienVND<=0||tienUSD<=0)
+            {
+                gvDataList.SetRowCellValue(e.RowHandle, gvDataList.Columns[3], "");
+                gvDataList.SetRowCellValue(e.RowHandle, gvDataList.Columns[4], "");
+            }
+            var id = Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[6]));
+            var editroom = db.Rooms.FirstOrDefault(m => m.Id == id);
+            editroom.Maloai = Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[2]));
+            editroom.Songuoi= Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[0]));
+            editroom.Sogiuong= Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[1]));
+            editroom.TienPVND= Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[3]));
+            editroom.TienPUSD= Convert.ToInt32(gvDataList.GetRowCellValue(e.RowHandle, gvDataList.Columns[4]));
+            db.SaveChanges();
         }
     }
 }

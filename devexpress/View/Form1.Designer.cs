@@ -99,6 +99,9 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.cameraControl1 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.timeClock = new System.Windows.Forms.Timer(this.components);
+            this.txtUserName = new DevExpress.XtraEditors.TextEdit();
+            this.txtIdNhanvien = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCL1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -107,6 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdNhanvien.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -278,6 +283,7 @@
             this.btnLogout.Id = 4;
             this.btnLogout.ImageOptions.ImageIndex = 75;
             this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // btnThietbi
             // 
@@ -730,7 +736,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.btnChuphinh);
             this.panelControl1.Controls.Add(this.btnKhoa);
-            this.panelControl1.Location = new System.Drawing.Point(0, 659);
+            this.panelControl1.Location = new System.Drawing.Point(0, 689);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1311, 77);
             this.panelControl1.TabIndex = 5;
@@ -778,6 +784,33 @@
             this.pictureEdit1.Size = new System.Drawing.Size(624, 376);
             this.pictureEdit1.TabIndex = 8;
             // 
+            // timeClock
+            // 
+            this.timeClock.Interval = 1000;
+            this.timeClock.Tick += new System.EventHandler(this.timeClock_Tick);
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUserName.Enabled = false;
+            this.txtUserName.Location = new System.Drawing.Point(934, 49);
+            this.txtUserName.MenuManager = this.ribbonControl1;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtUserName.Properties.Appearance.Options.UseForeColor = true;
+            this.txtUserName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.txtUserName.Size = new System.Drawing.Size(100, 22);
+            this.txtUserName.TabIndex = 10;
+            // 
+            // txtIdNhanvien
+            // 
+            this.txtIdNhanvien.Location = new System.Drawing.Point(828, 49);
+            this.txtIdNhanvien.MenuManager = this.ribbonControl1;
+            this.txtIdNhanvien.Name = "txtIdNhanvien";
+            this.txtIdNhanvien.Size = new System.Drawing.Size(100, 22);
+            this.txtIdNhanvien.TabIndex = 11;
+            this.txtIdNhanvien.Visible = false;
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -786,6 +819,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 769);
+            this.Controls.Add(this.txtIdNhanvien);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.cameraControl1);
             this.Controls.Add(this.panelControl1);
@@ -808,6 +843,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdNhanvien.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,6 +921,9 @@
         private DevExpress.XtraEditors.Camera.CameraControl cameraControl1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.SimpleButton btnChuphinh;
+        private System.Windows.Forms.Timer timeClock;
+        public DevExpress.XtraEditors.TextEdit txtUserName;
+        public DevExpress.XtraEditors.TextEdit txtIdNhanvien;
     }
 }
 

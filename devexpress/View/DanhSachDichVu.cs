@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace devexpress.View
 {
-    public partial class DichVu : Form
+    public partial class DanhSachDichVu : Form
     {
-        public DichVu()
+        public DanhSachDichVu()
         {
             InitializeComponent();
         }

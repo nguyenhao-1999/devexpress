@@ -8,21 +8,15 @@ using System.Threading.Tasks;
 
 namespace devexpress.Model
 {
-    [Table("BaoThuc")]
-    public class BaoThuc
+    [Table("DichvuN")]
+    public class DichvuN
     {
         [Key]
         [Required]
         public int Id { get; set; }
         [Required]
-        public int IdPhong { get; set; }
+        public string Manhom { get; set; }
         [Required]
-        public DateTime Ngay { get; set; }
-        [Required]
-        public string Gio { get; set; }
-        [Required]
-        public string NoiDung { get; set; }
-        [Required]
-        public string Lap { get; set; }
+        public string Tennhom { get; set; }
     }
 }

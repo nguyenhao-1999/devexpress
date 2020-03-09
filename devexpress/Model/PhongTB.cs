@@ -8,21 +8,26 @@ using System.Threading.Tasks;
 
 namespace devexpress.Model
 {
-    [Table("BaoThuc")]
-    public class BaoThuc
+    [Table("PhongTB")]
+    public class PhongTB
     {
         [Key]
         [Required]
         public int Id { get; set; }
         [Required]
-        public int IdPhong { get; set; }
+        public int Sophong { get; set; }
         [Required]
-        public DateTime Ngay { get; set; }
+        public int MaTB { get; set; }
         [Required]
-        public string Gio { get; set; }
+        public int SL { get; set; }
         [Required]
-        public string NoiDung { get; set; }
+        public string ThongsoKT { get; set; }
         [Required]
-        public string Lap { get; set; }
+        public DateTime NgaySD { get; set; }
+        [Required]
+        public DateTime HanBH { get; set; }
+        public string Ghichu { get; set; }
+
+
     }
 }

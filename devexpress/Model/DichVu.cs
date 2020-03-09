@@ -20,12 +20,11 @@ namespace devexpress.Model
         public string MaDV { get; set; }
         [Required]
         public string TenDV { get; set; }
-        [Required]
         public string DVT { get; set; }
         [Required]
         public int SoLuong { get; set; }
         public float GiaNhapCuoi { get; set; }
-        public int GiaBinhQuuan { get; set; }
+        public int GiaBinhQuan { get; set; }
         public string Note { get; set; }
     }
 }

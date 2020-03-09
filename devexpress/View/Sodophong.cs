@@ -151,7 +151,7 @@ namespace devexpress.View
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where r.Status == 5
+                           where db.DangKyPhong.Any(dkp => dkp.SoPhong == r.Sophong)
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
@@ -161,7 +161,7 @@ namespace devexpress.View
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where r.Status == 4
+                           where db.PhongS.Any(ps=>ps.Sophong==r.Sophong)
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();

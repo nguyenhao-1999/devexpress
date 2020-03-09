@@ -47,12 +47,16 @@
             this.grcSoNguoi = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.grbPhanLoai = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcPhanLoai = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.glueLoai = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.grcBangGia = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcVND = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcUSD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.glueLoaiPhong = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gvLoaiPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMaloai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -65,13 +69,16 @@
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.Id = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelgrv)).BeginInit();
             this.panelgrv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDataList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDataList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glueLoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glueLoaiPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLoaiPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -169,6 +176,9 @@
             this.gcDataList.Location = new System.Drawing.Point(2, 2);
             this.gcDataList.MainView = this.gvDataList;
             this.gcDataList.Name = "gcDataList";
+            this.gcDataList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.glueLoaiPhong,
+            this.glueLoai});
             this.gcDataList.Size = new System.Drawing.Size(1038, 621);
             this.gcDataList.TabIndex = 17;
             this.gcDataList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -188,20 +198,21 @@
             this.grcPhanLoai,
             this.grcVND,
             this.grcUSD,
-            this.grcSophog});
+            this.grcSophog,
+            this.Id});
             this.gvDataList.GridControl = this.gcDataList;
             this.gvDataList.Name = "gvDataList";
             this.gvDataList.OptionsView.ColumnAutoWidth = false;
             this.gvDataList.OptionsView.ShowColumnHeaders = false;
             this.gvDataList.OptionsView.ShowGroupPanel = false;
             this.gvDataList.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDataList_CustomDrawRowIndicator);
+            this.gvDataList.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gvDataList_CustomRowCellEdit);
             // 
             // gridBand3
             // 
             this.gridBand3.Caption = "Số phòng";
             this.gridBand3.Columns.Add(this.grcSophog);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.RowCount = 2;
             this.gridBand3.VisibleIndex = 0;
             this.gridBand3.Width = 75;
             // 
@@ -220,7 +231,6 @@
             this.grbSoGiuong.Caption = "Số giường";
             this.grbSoGiuong.Columns.Add(this.grcSoGiuong);
             this.grbSoGiuong.Name = "grbSoGiuong";
-            this.grbSoGiuong.RowCount = 2;
             this.grbSoGiuong.VisibleIndex = 1;
             this.grbSoGiuong.Width = 75;
             // 
@@ -238,7 +248,6 @@
             this.grbSoNguoi.Caption = "Số người";
             this.grbSoNguoi.Columns.Add(this.grcSoNguoi);
             this.grbSoNguoi.Name = "grbSoNguoi";
-            this.grbSoNguoi.RowCount = 2;
             this.grbSoNguoi.VisibleIndex = 2;
             this.grbSoNguoi.Width = 200;
             // 
@@ -257,17 +266,25 @@
             this.grbPhanLoai.Caption = "Phân loại";
             this.grbPhanLoai.Columns.Add(this.grcPhanLoai);
             this.grbPhanLoai.Name = "grbPhanLoai";
-            this.grbPhanLoai.RowCount = 2;
             this.grbPhanLoai.VisibleIndex = 3;
             this.grbPhanLoai.Width = 151;
             // 
             // grcPhanLoai
             // 
-            this.grcPhanLoai.FieldName = "Tenloai";
+            this.grcPhanLoai.ColumnEdit = this.glueLoai;
+            this.grcPhanLoai.FieldName = "Maloai";
             this.grcPhanLoai.Name = "grcPhanLoai";
-            this.grcPhanLoai.OptionsColumn.ShowCaption = false;
             this.grcPhanLoai.Visible = true;
             this.grcPhanLoai.Width = 151;
+            // 
+            // glueLoai
+            // 
+            this.glueLoai.AutoHeight = false;
+            this.glueLoai.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.glueLoai.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Tenloai", "Loại phòng")});
+            this.glueLoai.Name = "glueLoai";
             // 
             // grcBangGia
             // 
@@ -293,11 +310,12 @@
             // 
             // grcVND
             // 
-            this.grcVND.AppearanceCell.Options.UseTextOptions = true;
-            this.grcVND.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grcVND.AppearanceHeader.Options.UseTextOptions = true;
             this.grcVND.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grcVND.Caption = "VNÐ";
+            this.grcVND.DisplayFormat.FormatString = "### ### ###";
+            this.grcVND.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.grcVND.FieldName = "TienPVND";
             this.grcVND.Name = "grcVND";
             this.grcVND.Visible = true;
             this.grcVND.Width = 106;
@@ -314,14 +332,49 @@
             // 
             // grcUSD
             // 
-            this.grcUSD.AppearanceCell.Options.UseTextOptions = true;
-            this.grcUSD.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grcUSD.AppearanceHeader.Options.UseTextOptions = true;
             this.grcUSD.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grcUSD.Caption = "USD";
+            this.grcUSD.DisplayFormat.FormatString = "### ### ###";
+            this.grcUSD.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.grcUSD.FieldName = "TienPUSD";
             this.grcUSD.Name = "grcUSD";
             this.grcUSD.Visible = true;
             this.grcUSD.Width = 98;
+            // 
+            // glueLoaiPhong
+            // 
+            this.glueLoaiPhong.AutoHeight = false;
+            this.glueLoaiPhong.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.glueLoaiPhong.Name = "glueLoaiPhong";
+            this.glueLoaiPhong.View = this.gvLoaiPhong;
+            // 
+            // gvLoaiPhong
+            // 
+            this.gvLoaiPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaloai,
+            this.colTenloai});
+            this.gvLoaiPhong.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gvLoaiPhong.Name = "gvLoaiPhong";
+            this.gvLoaiPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvLoaiPhong.OptionsView.ShowGroupPanel = false;
+            // 
+            // colMaloai
+            // 
+            this.colMaloai.Caption = "Mã";
+            this.colMaloai.FieldName = "Maloai";
+            this.colMaloai.Name = "colMaloai";
+            this.colMaloai.Visible = true;
+            this.colMaloai.VisibleIndex = 0;
+            // 
+            // colTenloai
+            // 
+            this.colTenloai.Caption = "Loại phòng";
+            this.colTenloai.FieldName = "Tenloai";
+            this.colTenloai.Name = "colTenloai";
+            this.colTenloai.Visible = true;
+            this.colTenloai.VisibleIndex = 1;
             // 
             // panelControl4
             // 
@@ -420,6 +473,13 @@
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.Images.SetKeyName(0, "Folder22.png");
             // 
+            // Id
+            // 
+            this.Id.Caption = "Id";
+            this.Id.FieldName = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = true;
+            // 
             // DanhSachPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -437,7 +497,9 @@
             this.panelgrv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcDataList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDataList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glueLoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glueLoaiPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLoaiPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -464,7 +526,6 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private System.Windows.Forms.BindingSource roomsBindingSource;
         private DevExpress.XtraGrid.GridControl gcDataList;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvDataList;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn grcSoGiuong;
@@ -479,6 +540,13 @@
         private DevExpress.XtraTreeList.Columns.TreeListBand treeListBand2;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.SimpleButton btnNhom;
+        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit glueLoaiPhong;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLoaiPhong;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaloai;
+        private DevExpress.XtraGrid.Columns.GridColumn colTenloai;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grbSoGiuong;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grbSoNguoi;
@@ -486,8 +554,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grcBangGia;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraTreeList.TreeList treeList1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-        private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit glueLoai;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Id;
     }
 }

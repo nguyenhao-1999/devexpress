@@ -44,15 +44,23 @@ namespace devexpress.DAO
 
         public void Xem(GridControl gcDataCheckin,int sophong)
         {
-
-            var list = (from khach in this.DK_Customers
-                        from dk in Dangky
-                        where khach.Sophong == sophong && khach.IdDK == dk.Id && dk.DaCheckin == true
-                        select new { khach }).ToList();
-            foreach (var item in list)
+            var dkp = (from dkphong in DangKyPhong
+                      where dkphong.SoPhong == sophong
+                      select dkphong).Count();
+            if(dkp>0)
             {
-               gcDataCheckin.DataSource = list;
+                var list = (from khach in this.DK_Customers
+                            from dk in Dangky
+                            where khach.Sophong == sophong && khach.IdDK == dk.Id && dk.DaCheckin == true
+                            select khach).ToList();
+                 gcDataCheckin.DataSource = list;
             }
+            else
+            {
+                var list = DK_Customers.Where(m=>m.Sophong==sophong).ToList();
+                gcDataCheckin.DataSource = list;
+            }
+           
         }
 
         public void Xoa(int id)

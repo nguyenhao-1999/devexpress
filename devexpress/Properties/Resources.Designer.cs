@@ -103,6 +103,26 @@ namespace devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alarm_clock_icon {
+            get {
+                object obj = ResourceManager.GetObject("alarm-clock-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap alarm_clock_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("alarm-clock-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backgound {
             get {
                 object obj = ResourceManager.GetObject("backgound", resourceCulture);
@@ -206,6 +226,16 @@ namespace devexpress.Properties {
         internal static System.Drawing.Bitmap help20 {
             get {
                 object obj = ResourceManager.GetObject("help20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hinh_nen_3d_windows_10_dep_3 {
+            get {
+                object obj = ResourceManager.GetObject("hinh-nen-3d-windows-10-dep-3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -109,6 +109,7 @@
             this.btnChapnhan.Size = new System.Drawing.Size(117, 28);
             this.btnChapnhan.TabIndex = 6;
             this.btnChapnhan.Text = "Chấp nhận";
+            this.btnChapnhan.Click += new System.EventHandler(this.btnChapnhan_Click);
             // 
             // btnHuy
             // 
@@ -120,6 +121,7 @@
             this.btnHuy.Size = new System.Drawing.Size(118, 28);
             this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // DoiMatKhau
             // 
@@ -137,6 +139,7 @@
             this.Controls.Add(this.labelControl1);
             this.Location = new System.Drawing.Point(12, 39);
             this.Name = "DoiMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
             ((System.ComponentModel.ISupportInitialize)(this.txtmkcu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmkm.Properties)).EndInit();

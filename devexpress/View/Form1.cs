@@ -12,7 +12,8 @@ using DevExpress.Utils.Animation;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Drawing.Imaging;
-using DichVu = devexpress.View.DichVu;
+using DanhSachDichVu = devexpress.View.DanhSachDichVu;
+using DevExpress.XtraEditors;
 
 namespace devexpress
 {
@@ -24,7 +25,9 @@ namespace devexpress
             InitializeComponent();
             cameraControl1.Hide();
             pictureEdit1.Hide();
+            timeClock.Start();
         }
+        int t = 0;
         public void ViewChildForm(Form form)
         {
             if (!IsFormActived(form))
@@ -112,7 +115,8 @@ namespace devexpress
         private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DoiMatKhau dmk = new DoiMatKhau();
-            dmk.Show();
+            dmk.id = Convert.ToInt32(txtIdNhanvien.EditValue);
+            dmk.ShowDialog();
         }
 
         private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -164,7 +168,7 @@ namespace devexpress
 
         private void btnDichvu_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DichVu dv = new DichVu();
+            DanhSachDichVu dv = new DanhSachDichVu();
             ViewChildForm(dv);
         }
 
@@ -173,6 +177,69 @@ namespace devexpress
             PhieuDatPhongMoi dp = new PhieuDatPhongMoi();
             dp.StartPosition = FormStartPosition.CenterScreen;
             dp.ShowDialog();
+        }
+        private void timeClock_Tick(object sender, EventArgs e)
+        {
+            int a = DateTime.Now.Second;
+            int b = DateTime.Now.Minute;
+            int c = DateTime.Now.Hour;
+            a++;
+            if(a>59)
+            {
+                a = 0;
+                b++;
+                if (b > 59)
+                {
+                    b = 0;
+                    c++;
+                    if(c>24)
+                    {
+                        c = 0;
+                        txtDate.EditValue = DateTime.Now.AddDays(1).ToShortDateString();
+                    }
+                }
+                if (c < 10)
+                {
+                    txtGio.EditValue = "0" + c + ":" + b;
+                }
+                else
+                {
+                    txtGio.EditValue = c + ":" + b;
+                }
+                if (b < 10)
+                {
+                    txtGio.EditValue = c + ":0" + b;
+                }
+                else
+                {
+                    txtGio.EditValue = c + ":" + b;
+                }
+            }
+            var giobt = txtGio.Text.Trim();
+            var ngaybt = DateTime.Now.Date;
+            var bt = db.BaoThuc.Where(m => m.Gio == giobt&&m.Ngay==ngaybt).Count();
+            if (bt != 0)
+            {
+                t++;
+                if (t == 1)
+                {
+                   Nhantin_Baothuc nnbt = new Nhantin_Baothuc();
+                   nnbt.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - nnbt.Width, Screen.PrimaryScreen.WorkingArea.Height - nnbt.Height);
+                   nnbt.ShowDialog();
+                }
+            }
+            else
+            {
+                t = 0;
+            }
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có muốn đăng xuất hay không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         //private void btnDichvu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

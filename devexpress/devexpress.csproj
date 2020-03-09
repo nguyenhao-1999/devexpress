@@ -122,12 +122,18 @@
     <Compile Include="Model\DangKyKhach.cs" />
     <Compile Include="Model\DangKyPhong.cs" />
     <Compile Include="Model\DichVu.cs" />
+    <Compile Include="Model\DichvuN.cs" />
     <Compile Include="Model\DichVuPhong.cs" />
     <Compile Include="Model\DK_Customer.cs" />
     <Compile Include="Model\Khach.cs" />
     <Compile Include="Model\LoaiTien.cs" />
     <Compile Include="Model\NganHang.cs" />
     <Compile Include="Model\NhanVien.cs" />
+    <Compile Include="Model\Phong.cs" />
+    <Compile Include="Model\PhongClient.cs" />
+    <Compile Include="Model\PhongDV.cs" />
+    <Compile Include="Model\PhongS.cs" />
+    <Compile Include="Model\PhongTB.cs" />
     <Compile Include="Model\QLKSDbContext.cs" />
     <Compile Include="Model\Quoctich.cs" />
     <Compile Include="Model\Room.cs" />
@@ -167,12 +173,6 @@
     </Compile>
     <Compile Include="View\CongNo.Designer.cs">
       <DependentUpon>CongNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dangnhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dangnhap.Designer.cs">
-      <DependentUpon>Dangnhap.cs</DependentUpon>
     </Compile>
     <Compile Include="View\DanhSachChi.cs">
       <SubType>Form</SubType>
@@ -216,11 +216,11 @@
     <Compile Include="View\DanhSachThu.Designer.cs">
       <DependentUpon>DanhSachThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\DichVu.cs">
+    <Compile Include="View\DanhSachDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\DichVu.Designer.cs">
-      <DependentUpon>DichVu.cs</DependentUpon>
+    <Compile Include="View\DanhSachDichVu.Designer.cs">
+      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="View\DK_ThemKhach.cs">
       <SubType>Form</SubType>
@@ -252,6 +252,12 @@
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\HieuQuaKhaiThacPhong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Nhantin-Baothuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Nhantin-Baothuc.Designer.cs">
+      <DependentUpon>Nhantin-Baothuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PhieuDatPhongMoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +320,12 @@
     <Compile Include="View\Themnguoi.Designer.cs">
       <DependentUpon>Themnguoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ThemNV.Designer.cs">
+      <DependentUpon>ThemNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ThietBiTienNghi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,11 +338,14 @@
     <Compile Include="View\Thongtin.Designer.cs">
       <DependentUpon>Thongtin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ChonDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChonDV.Designer.cs">
+      <DependentUpon>ChonDV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\CongNo.resx">
       <DependentUpon>CongNo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dangnhap.resx">
-      <DependentUpon>Dangnhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DanhSachChi.resx">
       <DependentUpon>DanhSachChi.cs</DependentUpon>
@@ -347,8 +368,8 @@
     <EmbeddedResource Include="View\DanhSachThu.resx">
       <DependentUpon>DanhSachThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\DichVu.resx">
-      <DependentUpon>DichVu.cs</DependentUpon>
+    <EmbeddedResource Include="View\DanhSachDichVu.resx">
+      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DK_ThemKhach.resx">
       <DependentUpon>DK_ThemKhach.cs</DependentUpon>
@@ -365,6 +386,9 @@
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\HieuQuaKhaiThacPhong.resx">
       <DependentUpon>HieuQuaKhaiThacPhong.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +400,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Nhantin-Baothuc.resx">
+      <DependentUpon>Nhantin-Baothuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PhieuDatPhongMoi.resx">
       <DependentUpon>PhieuDatPhongMoi.cs</DependentUpon>
@@ -398,11 +425,17 @@
     <EmbeddedResource Include="View\Themnguoi.resx">
       <DependentUpon>Themnguoi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ThemNV.resx">
+      <DependentUpon>ThemNV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ThietBiTienNghi.resx">
       <DependentUpon>ThietBiTienNghi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Thongtin.resx">
       <DependentUpon>Thongtin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChonDV.resx">
+      <DependentUpon>ChonDV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -515,6 +548,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\help20.png" />
+    <None Include="Resources\alarm-clock-icon.png" />
+    <None Include="Resources\alarm-clock-icon %281%29.png" />
+    <None Include="Resources\hinh-nen-3d-windows-10-dep-3.jpg" />
     <Content Include="Resources\Office-Customer-Male-Light-icon.png" />
     <None Include="Resources\Office-Customer-Male-Light-icon1.png" />
     <None Include="Resources\Image1.bmp" />
