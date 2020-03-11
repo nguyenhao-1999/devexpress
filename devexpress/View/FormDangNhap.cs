@@ -89,16 +89,6 @@ namespace devexpress.View
             return false;
         }
 
-        private Form nextForm(string id)
-        {
-            Form f = new Form();
-            switch (id)
-            {
-                case "1":
-                    f = new Form1();
-                    break;
-            }
-            return f;
-        }
+        
     }
 }

@@ -92,7 +92,8 @@ namespace devexpress.View
             lookUpEditQuoctich.Properties.ValueMember = "Id";
 
         }
-        int t = -1;
+        int t = 0;
+        int idkh = 0;
         private void Imformation_Selecting(object sender, DevExpress.XtraTab.TabPageCancelEventArgs e)
         {
             if(e.Page==tabpageCheckin)
@@ -265,6 +266,7 @@ namespace devexpress.View
             var list = db.Quoctich.ToList();
             bool checkedGioitinh = (bool)gvDataCheckin.GetRowCellValue(e.RowHandle, "Gioitinh");
             bool checkedDaidien = (bool)gvDataCheckin.GetRowCellValue(e.RowHandle, "Daidien");
+            idkh = Convert.ToInt32(gvDataCheckin.GetRowCellValue(e.RowHandle, "IdKH"));
             if (e.RowHandle == gvDataCheckin.FocusedRowHandle && e.Column == colCMND)
             {
                 txtCmnd.Text = gvDataCheckin.GetRowCellValue(e.RowHandle, "CMND").ToString();
@@ -390,6 +392,7 @@ namespace devexpress.View
                 }
                 else
                 {
+                    khach.Id = idkh;
                     DK_CustomerBUS.Instance.EditCustomer(khachhang);
                     KhachHangBUS.Instance.EditKhachHang(khach);
                     DK_CustomerBUS.Instance.Xem(gcDataCheckin, Convert.ToInt32(labPhong.Text));

@@ -28,6 +28,8 @@ namespace devexpress.View
         Room rooms;
         public delegate void GetData(Room room);
         string Hoten = "";
+        private TileViewItemCustomizeEventArgs s;
+
         public void PostData(List<DK_Customer> kh)
         {
             if (kh != null)
@@ -53,6 +55,7 @@ namespace devexpress.View
 
         private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
         {
+            s = e;
             var list = db.DK_Customers;
             var list2 = db.Rooms.ToList();
             var list3 = db.Rooms.Where(m => m.Status == 5).ToList();
@@ -113,7 +116,8 @@ namespace devexpress.View
             tt.StartPosition = FormStartPosition.CenterScreen;
             GetData mydate = new GetData(tt.PostData);
             mydate(rooms);
-            tt.Show();
+            tileView1_ItemCustomize(sender, s);
+            tt.ShowDialog();
         }
 
         private void rbLoc_SelectedIndexChanged(object sender, EventArgs e)

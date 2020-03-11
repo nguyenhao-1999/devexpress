@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhong));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhom = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnInPhieu = new DevExpress.XtraEditors.SimpleButton();
@@ -70,7 +71,7 @@
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBoqua = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelgrv)).BeginInit();
@@ -97,6 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.btnBoqua);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Controls.Add(this.btnNhom);
             this.panelControl1.Controls.Add(this.btnXoa);
@@ -108,13 +110,25 @@
             this.panelControl1.Size = new System.Drawing.Size(1295, 40);
             this.panelControl1.TabIndex = 12;
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnLuu.Appearance.Options.UseFont = true;
+            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
+            this.btnLuu.Location = new System.Drawing.Point(339, 0);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(88, 40);
+            this.btnLuu.TabIndex = 3;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // btnNhom
             // 
             this.btnNhom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhom.ImageOptions.Image")));
-            this.btnNhom.Location = new System.Drawing.Point(527, 0);
+            this.btnNhom.Location = new System.Drawing.Point(646, -1);
             this.btnNhom.Name = "btnNhom";
             this.btnNhom.Size = new System.Drawing.Size(113, 41);
-            this.btnNhom.TabIndex = 2;
+            this.btnNhom.TabIndex = 17;
             this.btnNhom.Text = "Nhóm";
             this.btnNhom.Click += new System.EventHandler(this.btnNhom_Click);
             // 
@@ -122,19 +136,20 @@
             // 
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(433, 1);
+            this.btnXoa.ImageOptions.Image = global::devexpress.Properties.Resources.button_cancel18;
+            this.btnXoa.Location = new System.Drawing.Point(433, -1);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 40);
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnInPhieu
             // 
             this.btnInPhieu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnInPhieu.Appearance.Options.UseFont = true;
             this.btnInPhieu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInPhieu.ImageOptions.Image")));
-            this.btnInPhieu.Location = new System.Drawing.Point(227, 1);
+            this.btnInPhieu.Location = new System.Drawing.Point(227, -1);
             this.btnInPhieu.Name = "btnInPhieu";
             this.btnInPhieu.Size = new System.Drawing.Size(106, 40);
             this.btnInPhieu.TabIndex = 1;
@@ -183,7 +198,7 @@
             this.glueLoaiPhong,
             this.glueLoai});
             this.gcDataList.Size = new System.Drawing.Size(1038, 621);
-            this.gcDataList.TabIndex = 17;
+            this.gcDataList.TabIndex = 2;
             this.gcDataList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDataList});
             // 
@@ -211,6 +226,7 @@
             this.gvDataList.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDataList_CustomDrawRowIndicator);
             this.gvDataList.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gvDataList_CustomRowCellEdit);
             this.gvDataList.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvDataList_InitNewRow);
+            this.gvDataList.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvDataList_ValidatingEditor);
             // 
             // gridBand3
             // 
@@ -484,17 +500,15 @@
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.Images.SetKeyName(0, "Folder22.png");
             // 
-            // btnLuu
+            // btnBoqua
             // 
-            this.btnLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnLuu.Appearance.Options.UseFont = true;
-            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(339, 0);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(88, 40);
-            this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.btnBoqua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnBoqua.Location = new System.Drawing.Point(527, -1);
+            this.btnBoqua.Name = "btnBoqua";
+            this.btnBoqua.Size = new System.Drawing.Size(113, 41);
+            this.btnBoqua.TabIndex = 4;
+            this.btnBoqua.Text = "Bỏ qua";
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // DanhSachPhong
             // 
@@ -573,5 +587,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit glueLoai;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Id;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
+        private DevExpress.XtraEditors.SimpleButton btnBoqua;
     }
 }

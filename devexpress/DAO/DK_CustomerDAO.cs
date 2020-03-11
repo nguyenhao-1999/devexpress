@@ -33,7 +33,7 @@ namespace devexpress.DAO
             {
                 foreach (var item in list)
                 {
-                    if (item.Daidien == true && item.Id != cus.Id)
+                    if (item.Daidien == true && item.Id != cus.Id && item.Sophong == cus.Sophong)
                     {
                         item.Daidien = false;
                     }
@@ -78,7 +78,7 @@ namespace devexpress.DAO
             {
                 foreach (var item in list.ToList())
                 {
-                    if (item.Daidien == true && item.Id != cus.Id)
+                    if (item.Daidien == true && item.Id != cus.Id && item.Sophong == cus.Sophong)
                     {
                         item.Daidien = false;
                     }
