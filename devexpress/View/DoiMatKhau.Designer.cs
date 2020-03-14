@@ -78,6 +78,7 @@
             this.txtmkcu.Name = "txtmkcu";
             this.txtmkcu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtmkcu.Properties.Appearance.Options.UseFont = true;
+            this.txtmkcu.Properties.UseSystemPasswordChar = true;
             this.txtmkcu.Size = new System.Drawing.Size(143, 24);
             this.txtmkcu.TabIndex = 3;
             // 
@@ -87,6 +88,7 @@
             this.txtmkm.Name = "txtmkm";
             this.txtmkm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtmkm.Properties.Appearance.Options.UseFont = true;
+            this.txtmkm.Properties.UseSystemPasswordChar = true;
             this.txtmkm.Size = new System.Drawing.Size(143, 24);
             this.txtmkm.TabIndex = 4;
             // 
@@ -96,6 +98,7 @@
             this.txtgolai.Name = "txtgolai";
             this.txtgolai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtgolai.Properties.Appearance.Options.UseFont = true;
+            this.txtgolai.Properties.UseSystemPasswordChar = true;
             this.txtgolai.Size = new System.Drawing.Size(143, 24);
             this.txtgolai.TabIndex = 5;
             // 
@@ -138,6 +141,8 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Location = new System.Drawing.Point(12, 39);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DoiMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";

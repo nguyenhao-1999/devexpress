@@ -116,13 +116,13 @@ namespace devexpress
         {
             DoiMatKhau dmk = new DoiMatKhau();
             dmk.id = Convert.ToInt32(txtIdNhanvien.EditValue);
+            dmk.t = 0;
             dmk.ShowDialog();
         }
 
         private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             QuanTriNguoiDung tt = new QuanTriNguoiDung();
-
             ViewChildForm(tt);
         }
         private void btnThietbi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -217,15 +217,26 @@ namespace devexpress
             }
             var giobt = txtGio.Text.Trim();
             var ngaybt = DateTime.Now.Date;
-            var bt = db.BaoThuc.Where(m => m.Gio == giobt&&m.Ngay==ngaybt).Count();
+            var bt = db.BaoThuc.Where(m => m.Gio == giobt&&m.Ngay<=ngaybt).Count();
             if (bt != 0)
             {
                 t++;
-                if (t == 1)
+                var ktbt = db.BaoThuc.Where(m => m.Gio == giobt && m.Ngay == ngaybt && m.Lap == "Một lần").Count();
+                List<BaoThuc> listbt = new List<BaoThuc>();
+                if (ktbt>0)
                 {
-                   Nhantin_Baothuc nnbt = new Nhantin_Baothuc();
-                   nnbt.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - nnbt.Width, Screen.PrimaryScreen.WorkingArea.Height - nnbt.Height);
-                   nnbt.ShowDialog();
+                    listbt= db.BaoThuc.Where(m => m.Gio == giobt && m.Ngay == ngaybt).ToList();
+                }
+                else
+                {
+                    listbt = db.BaoThuc.Where(m => m.Gio == giobt && m.Ngay <= ngaybt).ToList();
+                }
+                if(t==1)
+                {
+                    Nhantin_Baothuc nnbt = new Nhantin_Baothuc();
+                    nnbt.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - nnbt.Width, Screen.PrimaryScreen.WorkingArea.Height - nnbt.Height);
+                    nnbt.gcThongbaoBT.DataSource = listbt;
+                    nnbt.ShowDialog();
                 }
             }
             else
@@ -244,7 +255,7 @@ namespace devexpress
 
         private void barSubNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            View.NhanVien nv = new View.NhanVien();
+            View.FormNhanVien nv = new View.FormNhanVien();
             ViewChildForm(nv);
         }
 

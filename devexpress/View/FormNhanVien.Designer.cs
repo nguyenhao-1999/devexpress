@@ -1,6 +1,6 @@
 ﻿namespace devexpress.View
 {
-    partial class NhanVien
+    partial class FormNhanVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
             this.btnThemNV = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.qLKhachSan2DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLKhachSan2DataSet = new devexpress.QLKhachSan2DataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.clSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaNV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,20 +51,13 @@
             this.colMucLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.qLKhachSan1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLKhachSan1DataSet = new devexpress.QLKhachSan1DataSet();
-            this.qLKhachSan1DataSet1 = new devexpress.QLKhachSan1DataSet1();
-            this.qLKhachSan1DataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tlBoPhan = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan2DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlBoPhan)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThemNV
@@ -77,12 +67,11 @@
             this.btnThemNV.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnThemNV.Appearance.Options.UseBackColor = true;
             this.btnThemNV.Appearance.Options.UseFont = true;
-            this.btnThemNV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnThemNV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThemNV.ImageOptions.Image")));
-            this.btnThemNV.Location = new System.Drawing.Point(0, 0);
+            this.btnThemNV.Location = new System.Drawing.Point(6, 0);
             this.btnThemNV.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemNV.Name = "btnThemNV";
-            this.btnThemNV.Size = new System.Drawing.Size(83, 36);
+            this.btnThemNV.Size = new System.Drawing.Size(104, 36);
             this.btnThemNV.TabIndex = 0;
             this.btnThemNV.Text = "Thêm NV";
             this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
@@ -94,9 +83,8 @@
             this.btnSua.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnSua.Appearance.Options.UseBackColor = true;
             this.btnSua.Appearance.Options.UseFont = true;
-            this.btnSua.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
-            this.btnSua.Location = new System.Drawing.Point(91, 1);
+            this.btnSua.Location = new System.Drawing.Point(118, 1);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(63, 35);
@@ -122,12 +110,11 @@
             this.btnThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnThoat.Appearance.Options.UseBackColor = true;
             this.btnThoat.Appearance.Options.UseFont = true;
-            this.btnThoat.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(228, 1);
+            this.btnThoat.Location = new System.Drawing.Point(255, 0);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(62, 35);
+            this.btnThoat.Size = new System.Drawing.Size(83, 35);
             this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             // 
@@ -138,9 +125,8 @@
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnXoa.Appearance.Options.UseBackColor = true;
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(162, 1);
+            this.btnXoa.Location = new System.Drawing.Point(189, 1);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(58, 34);
@@ -149,24 +135,13 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.qLKhachSan2DataSetBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(1, 43);
+            this.gridControl1.Location = new System.Drawing.Point(281, 43);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1542, 595);
+            this.gridControl1.Size = new System.Drawing.Size(1262, 595);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // qLKhachSan2DataSetBindingSource
-            // 
-            this.qLKhachSan2DataSetBindingSource.DataSource = this.qLKhachSan2DataSet;
-            this.qLKhachSan2DataSetBindingSource.Position = 0;
-            // 
-            // qLKhachSan2DataSet
-            // 
-            this.qLKhachSan2DataSet.DataSetName = "QLKhachSan2DataSet";
-            this.qLKhachSan2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -360,47 +335,45 @@
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 13;
             // 
-            // qLKhachSan1DataSetBindingSource
+            // tlBoPhan
             // 
-            this.qLKhachSan1DataSetBindingSource.DataSource = this.qLKhachSan1DataSet;
-            this.qLKhachSan1DataSetBindingSource.Position = 0;
+            this.tlBoPhan.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
+            this.tlBoPhan.Location = new System.Drawing.Point(1, 43);
+            this.tlBoPhan.Name = "tlBoPhan";
+            this.tlBoPhan.OptionsBehavior.Editable = false;
+            this.tlBoPhan.OptionsView.ShowColumns = false;
+            this.tlBoPhan.OptionsView.ShowHorzLines = false;
+            this.tlBoPhan.OptionsView.ShowIndicator = false;
+            this.tlBoPhan.Size = new System.Drawing.Size(274, 615);
+            this.tlBoPhan.TabIndex = 2;
             // 
-            // qLKhachSan1DataSet
+            // treeListColumn1
             // 
-            this.qLKhachSan1DataSet.DataSetName = "QLKhachSan1DataSet";
-            this.qLKhachSan1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qLKhachSan1DataSet1
-            // 
-            this.qLKhachSan1DataSet1.DataSetName = "QLKhachSan1DataSet1";
-            this.qLKhachSan1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qLKhachSan1DataSet1BindingSource
-            // 
-            this.qLKhachSan1DataSet1BindingSource.DataSource = this.qLKhachSan1DataSet1;
-            this.qLKhachSan1DataSet1BindingSource.Position = 0;
+            this.treeListColumn1.Caption = "treeListColumn1";
+            this.treeListColumn1.FieldName = "name";
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
             // 
             // NhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1908, 791);
+            this.Controls.Add(this.tlBoPhan);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NhanVien";
-            this.Text = "NhanVien";
+            this.Text = "Quản trị người dùng";
+            this.Load += new System.EventHandler(this.NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan2DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan2DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSan1DataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlBoPhan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,12 +401,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMucLuong;
         private DevExpress.XtraGrid.Columns.GridColumn colLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
-        private System.Windows.Forms.BindingSource qLKhachSan1DataSetBindingSource;
-        private QLKhachSan1DataSet qLKhachSan1DataSet;
         private DevExpress.XtraGrid.Columns.GridColumn colSDT;
-        private QLKhachSan1DataSet1 qLKhachSan1DataSet1;
-        private System.Windows.Forms.BindingSource qLKhachSan1DataSet1BindingSource;
-        private System.Windows.Forms.BindingSource qLKhachSan2DataSetBindingSource;
-        private QLKhachSan2DataSet qLKhachSan2DataSet;
+        private DevExpress.XtraTreeList.TreeList tlBoPhan;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     }
 }

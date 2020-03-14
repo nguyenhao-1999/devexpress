@@ -19,10 +19,6 @@ namespace devexpress.View
 
         private void KhachHang_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLKhachSanDataSet2.DK_Customers' table. You can move, or remove it, as needed.
-            this.dK_CustomersTableAdapter.Fill(this.qLKhachSanDataSet2.DK_Customers);
-            // TODO: This line of code loads data into the 'qLKhachSanDataSet1.Khach' table. You can move, or remove it, as needed.
-            this.khachTableAdapter.Fill(this.qLKhachSanDataSet1.Khach);
 
         }
     }

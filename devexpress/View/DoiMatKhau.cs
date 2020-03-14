@@ -21,11 +21,15 @@ namespace devexpress.View
         }
         QLKSDbContext db = new QLKSDbContext();
         public int id;
+        public int t;
+        public delegate void UpdatePassWord(int id,string mk);
+        public event UpdatePassWord PasswordEvent;
         private void btnHuy_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Bạn có muốn hủy hay không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
+                QuanTriNguoiDung qt = new QuanTriNguoiDung();
             }
         }
 
@@ -60,9 +64,21 @@ namespace devexpress.View
             {
                 if(mkm==laplai)
                 {
-                    var dmk = db.NhanVien.FirstOrDefault(m => m.Id == id);
-                    dmk.Password = mkm;
-                    db.SaveChanges();
+                    if (t == 0)
+                    {
+                        var dmk = db.NhanVien.FirstOrDefault(m => m.Id == id);
+                        dmk.Password = mkm;
+                        db.SaveChanges();
+                        MessageBox.Show("Đổi mật khẩu thành công!", "Succes",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if(t==1)
+                    {
+                        if(PasswordEvent!=null)
+                        {
+                            PasswordEvent(id, mkm);
+                        }
+                    }
                 }
                 else
                 {

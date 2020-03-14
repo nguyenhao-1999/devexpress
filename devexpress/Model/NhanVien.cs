@@ -19,16 +19,16 @@ namespace devexpress.Model
         public string MaNV { get; set; }
         [Required]
         public string HoTen { get; set; }
-        public string NgaySinh { get; set; }
+        public DateTime NgaySinh { get; set; }
         [Required]
         public int SoCMND { get; set; }
         public string DiaChi { get; set; }
         [Required]
-        public int DienThoai { get; set; }
+        public string DienThoai { get; set; }
         public string Mail { get; set; }
-        [Required]
         public string TaiKhoan { get; set; }
         public string NganHang { get; set; }
+        [Required]
         public string Account { get; set; }
         [Required]
         public string Password { get; set; }

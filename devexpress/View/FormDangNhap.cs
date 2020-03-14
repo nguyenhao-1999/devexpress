@@ -31,19 +31,19 @@ namespace devexpress.View
 
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUserName.EditValue.ToString()) || string.IsNullOrEmpty(txtPassWord.EditValue.ToString()))
+            string username = txtUserName.EditValue.ToString();
+            string password = txtPassWord.EditValue.ToString();
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không được để trống!", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
-            string username = txtUserName.EditValue.ToString();
-            string password = txtPassWord.EditValue.ToString();
             if (LoginDN(username,password))
             {
                 Form1 f = new Form1();
                 this.Hide();
-                var nv = db.NhanVien.FirstOrDefault(m => m.TaiKhoan == username);
+                var nv = db.NhanVien.FirstOrDefault(m => m.Account == username);
                 f.txtUserName.EditValue = nv.HoTen;
                 f.txtIdNhanvien.EditValue = nv.Id;
                 f.ShowDialog();
@@ -53,7 +53,7 @@ namespace devexpress.View
             }
             else
             {
-                var kttk = db.NhanVien.Where(m => m.TaiKhoan == username).Count();
+                var kttk = db.NhanVien.Where(m => m.Account == username).Count();
                 if (kttk > 0)
                 {
                     XtraMessageBox.Show("Sai mật khẩu!");
@@ -71,7 +71,7 @@ namespace devexpress.View
             txtUserName.EditValue = "";
             txtPassWord.EditValue = "";
         }
-
+        public string key = "";
         private bool LoginDN(string username,string password)
         {
             byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
@@ -81,9 +81,10 @@ namespace devexpress.View
             {
                 hasPass += item;
             }
-            var dn = db.NhanVien.Where(m => m.TaiKhoan == username && m.Password == hasPass).Count();
+            var dn = db.NhanVien.Where(m => m.Account == username && m.Password == hasPass).Count();
             if(dn>0)
             {
+                key = txtPassWord.EditValue.ToString();
                 return true;
             }
             return false;

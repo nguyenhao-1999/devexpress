@@ -21,9 +21,6 @@ namespace devexpress.View
         QLKSDbContext db = new QLKSDbContext();
         private void Nhantin_Baothuc_Load(object sender, EventArgs e)
         {
-            var giobt = DateTime.Now.ToShortTimeString();
-            var listbt = db.BaoThuc.Where(m => m.Gio == giobt).ToList();
-            gcThongbaoBT.DataSource = listbt;
             tmClock.Start();
         }
         int a = 0;

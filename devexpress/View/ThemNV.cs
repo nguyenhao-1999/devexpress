@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using devexpress.Model;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace devexpress.View
 {
@@ -18,8 +19,11 @@ namespace devexpress.View
         public ThemNV()
         {
             InitializeComponent();
+            
         }
         QLKSDbContext db = new QLKSDbContext();
+        public delegate void UpdateNhanVien(object sender, UpEventArgs args);
+        public event UpdateNhanVien NhanVienEvent;
         private void ThemNV_Load(object sender, EventArgs e)
         {
             var nhom = db.BoPhan.ToList();
@@ -44,7 +48,7 @@ namespace devexpress.View
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(mk!=golai)
+            if (mk!=golai)
             {
                 MessageBox.Show("Mật khẩu và lặp lại mật khẩu không khớp!", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,27 +62,36 @@ namespace devexpress.View
                 hasPass += item;
             }
             NhanVien nv = new NhanVien();
-            //nv.MaNV = manv;
-            //nv.SoCMND = Convert.ToInt32(cmnd);
-            //nv.NgaySinh = Convert.ToDateTime(dateEditNS.EditValue).ToShortDateString();
-            //nv.DienThoai = Convert.ToInt32(txtSDT.EditValue);
-            //nv.MaNhom = cbNhom.EditValue.ToString();
-            //nv.TaiKhoan = tk;
-            //nv.Password = mk;
-            //nv.HoTen = hoten;
-            //nv.DiaChi = txtDiachi.EditValue.ToString();
-            //db.NhanVien.Add(nv);
+            nv.MaNV = manv;
+            nv.SoCMND = Convert.ToInt32(cmnd);
+            if (dateEditNS.EditValue.ToString() != "")
+            {
+                nv.NgaySinh = Convert.ToDateTime(dateEditNS.EditValue);
+            }
+            nv.DienThoai = txtSDT.EditValue.ToString();
+            nv.MaNhom = cbNhom.EditValue.ToString();
+            nv.Account = tk;
+            nv.Password = hasPass;
+            nv.HoTen = hoten;
+            if (txtDiachi.EditValue.ToString() != "")
+            {
+                nv.DiaChi = txtDiachi.EditValue.ToString();
+            }
+            db.NhanVien.Add(nv);
             db.SaveChanges();
+            PostData();
+            MessageBox.Show("Thêm thành công!", "Success",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
         }
 
         private void btnThoat_Click_1(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Bạn có muốn thoát hay không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Close();
             }
         }
-
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -94,5 +107,25 @@ namespace devexpress.View
                 e.Handled = true;
             }
         }
+
+        private void txtSDT_EditValueChanged(object sender, EventArgs e)
+        {
+            if(txtSDT.Text.Length>9)
+            {
+                MessageBox.Show("Số điện thoại không quá 10 ký tự!", "Error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        public void PostData()
+        {
+            var list = db.NhanVien.OrderBy(m => m.Id).ToList();
+            NhanVienEvent(this, new UpEventArgs { Data = list });
+        }
+    }
+
+    public class UpEventArgs:EventArgs
+    {
+        public List<NhanVien> Data { get; set; }
     }
 }

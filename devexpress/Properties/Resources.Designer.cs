@@ -273,6 +273,16 @@ namespace devexpress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap package_wordprocessing {
+            get {
+                object obj = ResourceManager.GetObject("package_wordprocessing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Places_mail_folder_outbox_icon {
             get {
                 object obj = ResourceManager.GetObject("Places-mail-folder-outbox-icon", resourceCulture);

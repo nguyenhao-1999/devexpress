@@ -37,8 +37,6 @@
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.gcThietBi = new DevExpress.XtraGrid.GridControl();
-            this.thietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLKhachSanDataSet = new devexpress.QLKhachSanDataSet();
             this.gvThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaTb = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,6 +48,7 @@
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaNhom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.thietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -66,17 +65,15 @@
             this.btnBoqua = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtMaNhom = new DevExpress.XtraEditors.TextEdit();
-            this.thietBiTableAdapter = new devexpress.QLKhachSanDataSetTableAdapters.ThietBiTableAdapter();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtSTT = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcThietBi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSX.Properties)).BeginInit();
@@ -168,16 +165,6 @@
             this.gcThietBi.TabIndex = 11;
             this.gcThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvThietBi});
-            // 
-            // thietBiBindingSource
-            // 
-            this.thietBiBindingSource.DataMember = "ThietBi";
-            this.thietBiBindingSource.DataSource = this.qLKhachSanDataSet;
-            // 
-            // qLKhachSanDataSet
-            // 
-            this.qLKhachSanDataSet.DataSetName = "QLKhachSanDataSet";
-            this.qLKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvThietBi
             // 
@@ -397,7 +384,7 @@
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
             this.btnLuu.Location = new System.Drawing.Point(3, 580);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(80, 34);
+            this.btnLuu.Size = new System.Drawing.Size(78, 34);
             this.btnLuu.TabIndex = 25;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -444,10 +431,6 @@
             this.txtMaNhom.Properties.Appearance.Options.UseFont = true;
             this.txtMaNhom.Size = new System.Drawing.Size(220, 24);
             this.txtMaNhom.TabIndex = 29;
-            // 
-            // thietBiTableAdapter
-            // 
-            this.thietBiTableAdapter.ClearBeforeFill = true;
             // 
             // labelControl7
             // 
@@ -502,11 +485,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcThietBi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thietBiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSX.Properties)).EndInit();
@@ -556,9 +538,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMaNhom;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtMaNhom;
-        private QLKhachSanDataSet qLKhachSanDataSet;
         private System.Windows.Forms.BindingSource thietBiBindingSource;
-        private QLKhachSanDataSetTableAdapters.ThietBiTableAdapter thietBiTableAdapter;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit txtSTT;
     }

@@ -80,12 +80,10 @@
             this.colKoSD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.dichVuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLKhachSanDataSet3 = new devexpress.QLKhachSanDataSet3();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnInPhieu = new DevExpress.XtraEditors.SimpleButton();
             this.btnChiTiet = new DevExpress.XtraEditors.SimpleButton();
             this.btnDuLieu = new DevExpress.XtraEditors.SimpleButton();
-            this.dichVuTableAdapter = new devexpress.QLKhachSanDataSet3TableAdapters.DichVuTableAdapter();
             this.grbSTT = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grbMa = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -114,7 +112,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDichVu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dichVuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -603,12 +600,7 @@
             // dichVuBindingSource
             // 
             this.dichVuBindingSource.DataMember = "DichVu";
-            this.dichVuBindingSource.DataSource = this.qLKhachSanDataSet3;
             // 
-            // qLKhachSanDataSet3
-            // 
-            this.qLKhachSanDataSet3.DataSetName = "QLKhachSanDataSet3";
-            this.qLKhachSanDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelControl1
             // 
@@ -657,9 +649,6 @@
             this.btnDuLieu.TabIndex = 0;
             this.btnDuLieu.Text = "Dữ liệu";
             // 
-            // dichVuTableAdapter
-            // 
-            this.dichVuTableAdapter.ClearBeforeFill = true;
             // 
             // grbSTT
             // 
@@ -808,7 +797,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDichVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dichVuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -870,9 +858,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdbUSD;
         private System.Windows.Forms.RadioButton rdbVND;
-        private QLKhachSanDataSet3 qLKhachSanDataSet3;
         private System.Windows.Forms.BindingSource dichVuBindingSource;
-        private QLKhachSanDataSet3TableAdapters.DichVuTableAdapter dichVuTableAdapter;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grbSTT;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand grbMa;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;

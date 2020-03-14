@@ -163,6 +163,10 @@ namespace devexpress.View
             t = 1;
             btnThem.Enabled = false;
             btnBoqua.Enabled = true;
+            btnChiTiet.Enabled = false;
+            btnInPhieu.Enabled = false;
+            btnNhom.Enabled = false;
+            btnXoa.Enabled = false;
             btnLuu.Focus();
         }
 
@@ -176,7 +180,6 @@ namespace devexpress.View
         {
             if (t == 1)
             {
-
                 Room r = new Room();
                 r.Sophong = Convert.ToInt32(gvDataList.GetRowCellValue(gvDataList.FocusedRowHandle, gvDataList.Columns[5]));
                 r.Songuoi = Convert.ToInt32(gvDataList.GetRowCellValue(gvDataList.FocusedRowHandle, gvDataList.Columns[0]));
@@ -222,7 +225,8 @@ namespace devexpress.View
                     e.ErrorText = "Số phòng không được để trống!";
                 }
                 int sophong = Convert.ToInt32(e.Value);
-                var kt = db.Rooms.Where(m => m.Sophong == sophong).Count();
+                int id = Convert.ToInt32(gvDataList.GetRowCellValue(gvDataList.FocusedRowHandle, gvDataList.Columns[6]));
+                var kt = db.Rooms.Where(m => m.Sophong == sophong&&m.Id!=id).Count();
                 if (kt > 0)
                 {
                     e.Valid = false;
@@ -273,6 +277,10 @@ namespace devexpress.View
             gvDataList.DeleteRow(gvDataList.FocusedRowHandle);
             btnThem.Enabled = true;
             btnBoqua.Enabled = false;
+            btnChiTiet.Enabled = true;
+            btnInPhieu.Enabled = true;
+            btnNhom.Enabled = true;
+            btnXoa.Enabled = true;
             btnThem.Focus();
         }
     }
