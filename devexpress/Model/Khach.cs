@@ -27,7 +27,7 @@ namespace devexpress.Model
         public string DiaChi { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string GhhiChu { get; set; }
+        public string GhiChu { get; set; }
         public int SoATM { get; set; }
         public string MaBank { get; set; }
     }

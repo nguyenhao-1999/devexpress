@@ -27,10 +27,10 @@ namespace devexpress.DAO
             this.SaveChanges();
         }
 
-        public void Xem(GridControl gcKhachHang)
+        public void Xem(GridControl gvKhach)
         {
             var list = Khach.ToList();
-            gcKhachHang.DataSource = list;
+            gvKhach.DataSource = list;
         }
 
         public void DelKhachHang(int id)
@@ -52,7 +52,7 @@ namespace devexpress.DAO
             kh.DiaChi = cus.DiaChi;
             kh.Phone = cus.Phone;
             kh.Email = cus.Email;
-            kh.GhhiChu = cus.GhhiChu;
+            kh.GhiChu = cus.GhiChu;
             kh.MaBank = cus.MaBank;
             kh.SoATM = cus.SoATM;
             this.SaveChanges();

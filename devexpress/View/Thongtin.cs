@@ -371,7 +371,7 @@ namespace devexpress.View
                 khach.NgaySinh = Convert.ToDateTime("01-01-1900");
                 khach.Phone = "";
                 khach.SoATM = 0;
-                khach.GhhiChu = "";
+                khach.GhiChu = "";
                 //db.DK_Customers.Add(khachhang);
                 if (otp == 1)
                 {

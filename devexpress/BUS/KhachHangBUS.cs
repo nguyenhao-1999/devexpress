@@ -27,9 +27,9 @@ namespace devexpress.BUS
             KhachHangDAO.Instance.NewKhachHang(cus);
         }
 
-        public void Xem(GridControl gcKhachHang)
+        public void Xem(GridControl gvKhach)
         {
-            KhachHangDAO.Instance.Xem(gcKhachHang);
+            KhachHangDAO.Instance.Xem(gvKhach);
         }
 
         public void EditKhachHang(Khach cus)
