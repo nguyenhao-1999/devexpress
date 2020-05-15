@@ -96,7 +96,7 @@ namespace devexpress.View
                 {
                     if (i.Id == Convert.ToInt32(gvDichvu.GetRowCellValue(item, gvDichvu.Columns[5])))
                     {
-                        if (Convert.ToInt32(gvDichvu.GetRowCellValue(item, gvDichvu.Columns[4])) <= 0 && Convert.ToString(gvDichvu.GetRowCellValue(item, gvDichvu.Columns[2])) != "")
+                        if (Convert.ToInt32(gvDichvu.GetRowCellValue(item, gvDichvu.Columns[4])) <= 0)
                         {
                             MessageBox.Show("Vui lòng chọn số lượng của dịch vụ!");
                             return;
@@ -151,6 +151,23 @@ namespace devexpress.View
                         var editsl = db.DichVu.Where(m => m.Id == i.Id).First();
                         editsl.SoLuong = i.SoLuong;
                         db.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        private void spSoluong_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            foreach(var item in lstdv)
+            {
+                if(item.Id== Convert.ToInt32(gvDichvu.GetRowCellValue(gvDichvu.FocusedRowHandle, gvDichvu.Columns[5])))
+                {
+                    if(Convert.ToInt32(e.NewValue)>=item.SoLuong)
+                    {
+                        MessageBox.Show("Số lượng trong kho đã hết!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.NewValue = item.SoLuong;
+                        return;
                     }
                 }
             }

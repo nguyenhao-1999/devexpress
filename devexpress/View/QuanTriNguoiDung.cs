@@ -108,10 +108,10 @@ namespace devexpress.View
                     btnThem.Enabled = false;
                 }
             }
-            for(int i=0;i<gvQuantri.RowCount;i++)
-            {
-                gvQuantri.SetRowCellValue(i, grcMatKhau, "***********");
-            }
+            //for(int i=0;i<gvQuantri.RowCount;i++)
+            //{
+            //    gvQuantri.SetRowCellValue(i, grcMatKhau, "***********");
+            //}
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -169,7 +169,6 @@ namespace devexpress.View
                   MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (gvQuantri.FocusedRowHandle < 0)
@@ -178,12 +177,8 @@ namespace devexpress.View
                 MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
-            if (XtraMessageBox.Show("Bạn có muốn xóa hay không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
                 var id = Convert.ToInt32(gvQuantri.GetRowCellValue(gvQuantri.FocusedRowHandle, gvQuantri.Columns[0]));
-                Form1 f = new Form1();
-                var iddn = Convert.ToInt32(f.txtIdNhanvien.EditValue);
-                if(id==iddn)
+                if (id==iddn)
                 {
                     MessageBox.Show("Tài khoản này đang đăng nhập không thể xóa!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -196,7 +191,6 @@ namespace devexpress.View
                 MessageBox.Show("Xóa thành công!", "Success",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }
         }
 
         private void gvQuantri_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
@@ -263,16 +257,15 @@ namespace devexpress.View
 
         private void gvQuantri_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
         {
-            
             for (int i=0;i<gvQuantri.RowCount;i++)
             {
                 //var id = Convert.ToInt32(gvQuantri.GetRowCellValue(i, gvQuantri.Columns[0]));
                 //var editnv = db.NhanVien.FirstOrDefault(m => m.Id == id);
-                //if(editnv.DiaChi==null)
+                //if (editnv.DiaChi == null)
                 //{
                 //    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
                 //}
-                //if(gvQuantri.GetRowCellValue(i,gvQuantri.Columns[3]).ToString()==null)
+                //if (gvQuantri.GetRowCellValue(i, gvQuantri.Columns[3]).ToString() == null)
                 //{
                 //    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
                 //}

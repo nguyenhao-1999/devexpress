@@ -46,7 +46,6 @@ namespace devexpress.View
                 var nv = db.NhanVien.FirstOrDefault(m => m.Account == username);
                 f.txtUserName.EditValue = nv.HoTen;
                 f.txtIdNhanvien.EditValue = nv.Id;
-                txtUserName.EditValue = password;
                 f.ShowDialog();
                 this.Show();
                 ClearTextBox();

@@ -162,6 +162,7 @@
             this.spSoluong.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spSoluong.Name = "spSoluong";
+            this.spSoluong.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.spSoluong_EditValueChanging);
             // 
             // colId
             // 
