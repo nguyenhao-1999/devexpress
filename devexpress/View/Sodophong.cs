@@ -100,7 +100,7 @@ namespace devexpress.View
         {
             Thongtin tt = new Thongtin();
             tt.StartPosition = FormStartPosition.CenterScreen;
-            tt.Show();
+            tt.ShowDialog();
         }
 
         private void tileView1_ItemRightClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
@@ -114,6 +114,22 @@ namespace devexpress.View
         {
             Thongtin tt = new Thongtin();
             tt.StartPosition = FormStartPosition.CenterScreen;
+            var listdk = db.DK_Customers.Select(m => m.Sophong).ToList();
+            var list = db.Rooms.Where(x => !listdk.Contains(rooms.Sophong)).Count();
+            tt.dateCheckin.Enabled = false;
+            tt.txtTimeCheckin.Enabled = false;
+            if (list!=0)
+            {
+                var dt = DateTime.Now;
+                tt.dateCheckin.EditValue = dt.ToShortDateString();
+                tt.txtTimeCheckin.EditValue = dt.ToShortTimeString();
+            }
+            else
+            {
+                var roomdk = db.DK_Customers.FirstOrDefault(m => m.Sophong == rooms.Sophong&&m.Daidien==true);
+                tt.dateCheckin.EditValue = roomdk.DateCheckin.ToShortDateString();
+                tt.txtTimeCheckin.EditValue = roomdk.GioCheckin;
+            }
             GetData mydate = new GetData(tt.PostData);
             mydate(rooms);
             tileView1_ItemCustomize(sender, s);
@@ -122,6 +138,8 @@ namespace devexpress.View
 
         private void rbLoc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var datefrom = Convert.ToDateTime(dateEditFrom.EditValue);
+            var dateto = Convert.ToDateTime(dateEditTo.EditValue);
             if (rbLoc.SelectedIndex == 0)
             {
                 Sodophong_Load(sender, e);
@@ -130,22 +148,19 @@ namespace devexpress.View
             {
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
-                var list = from r in db.Rooms
-                           where r.Status==1
-                           select r;
+                var listdk = db.DK_Customers.Select(m => m.Sophong).ToArray();
+                var list = db.Rooms.Where(x => !listdk.Contains(x.Sophong)).ToList();
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
             }
             if (rbLoc.SelectedIndex == 2)
             {
-                var datefrom = Convert.ToDateTime(dateEditFrom.EditValue);
-                var dateto = Convert.ToDateTime(dateEditTo.EditValue);
                 datefrom = datefrom.Date;
                 dateto = dateto.Date;
                 gcData.BeginUpdate();
                 gcData.DataSource = null;
                 var list = from r in db.Rooms
-                           where db.DK_Customers.Any(dk => dk.Sophong == r.Sophong && dk.DateCheckin >= datefrom && dk.DateCheckin <= dateto && dk.Daidien == true)
+                           where db.DK_Customers.Any(dk => dk.Sophong == r.Sophong /*&& dk.DateCheckin >= datefrom && dk.DateCheckout <= dateto && dk.Daidien == true*/)
                            select r;
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
@@ -170,11 +185,6 @@ namespace devexpress.View
                 gcData.DataSource = list.ToList();
                 gcData.EndUpdate();
             }
-        }
-
-        private void adornerUIManager1_QueryGuideFlyoutControl(object sender, DevExpress.Utils.VisualEffects.QueryGuideFlyoutControlEventArgs e)
-        {
-
         }
     }
 }

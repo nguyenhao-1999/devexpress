@@ -77,6 +77,7 @@ namespace devexpress.View
                         if(PasswordEvent!=null)
                         {
                             PasswordEvent(id, mkm);
+                            this.Close();
                         }
                     }
                 }

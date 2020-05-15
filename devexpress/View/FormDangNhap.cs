@@ -46,6 +46,7 @@ namespace devexpress.View
                 var nv = db.NhanVien.FirstOrDefault(m => m.Account == username);
                 f.txtUserName.EditValue = nv.HoTen;
                 f.txtIdNhanvien.EditValue = nv.Id;
+                txtUserName.EditValue = password;
                 f.ShowDialog();
                 this.Show();
                 ClearTextBox();
@@ -81,6 +82,7 @@ namespace devexpress.View
             {
                 hasPass += item;
             }
+            txtUserName.EditValue = hasPass;
             var dn = db.NhanVien.Where(m => m.Account == username && m.Password == hasPass).Count();
             if(dn>0)
             {
@@ -90,6 +92,12 @@ namespace devexpress.View
             return false;
         }
 
-        
+        private void txtPassWord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                btnDangnhap_Click(sender, e);
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace devexpress.DAO
         }
         public void NewKhachHang(Khach cus)
         {
-            var list = this.Khach.ToList();
+            //var list = this.Khach.ToList();
             this.Khach.Add(cus);
             this.SaveChanges();
         }

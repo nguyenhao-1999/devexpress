@@ -478,6 +478,7 @@
             this.labelControl2.Size = new System.Drawing.Size(60, 17);
             this.labelControl2.TabIndex = 5;
             this.labelControl2.Text = "Đến ngày";
+            this.labelControl2.Visible = false;
             // 
             // dateEditTo
             // 
@@ -491,6 +492,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditTo.Size = new System.Drawing.Size(116, 22);
             this.dateEditTo.TabIndex = 4;
+            this.dateEditTo.Visible = false;
             // 
             // labelControl1
             // 
@@ -499,6 +501,7 @@
             this.labelControl1.Size = new System.Drawing.Size(52, 17);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Từ ngày";
+            this.labelControl1.Visible = false;
             // 
             // dateEditFrom
             // 
@@ -512,6 +515,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditFrom.Size = new System.Drawing.Size(116, 22);
             this.dateEditFrom.TabIndex = 2;
+            this.dateEditFrom.Visible = false;
             // 
             // rbLoc
             // 

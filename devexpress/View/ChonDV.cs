@@ -144,6 +144,7 @@ namespace devexpress.View
                         dv.SoLuong = i.SoLuong-sl;
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành công!");
+                        this.Close();
                     }
                     else
                     {

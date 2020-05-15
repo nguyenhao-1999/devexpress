@@ -123,8 +123,17 @@ namespace devexpress
         private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             QuanTriNguoiDung tt = new QuanTriNguoiDung();
+            tt.iddn = Convert.ToInt32(txtIdNhanvien.EditValue);
+            tt.NameNhanVienEvent += tt_NameNhanVienEvent;
             ViewChildForm(tt);
         }
+
+        private void tt_NameNhanVienEvent(string hoten)
+        {
+            txtUserName.EditValue = hoten;
+            
+        }
+
         private void btnThietbi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ThietBiTienNghi tb = new ThietBiTienNghi();

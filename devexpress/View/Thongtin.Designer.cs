@@ -351,7 +351,7 @@
             // 
             // txtTimeCheckin
             // 
-            this.txtTimeCheckin.EditValue = "1:30";
+            this.txtTimeCheckin.EditValue = "";
             this.txtTimeCheckin.Location = new System.Drawing.Point(351, 12);
             this.txtTimeCheckin.Name = "txtTimeCheckin";
             this.txtTimeCheckin.Size = new System.Drawing.Size(78, 22);
@@ -451,7 +451,7 @@
             // 
             // dateCheckin
             // 
-            this.dateCheckin.EditValue = new System.DateTime(2019, 11, 21, 8, 56, 58, 446);
+            this.dateCheckin.EditValue = new System.DateTime(2020, 5, 15, 13, 48, 22, 0);
             this.dateCheckin.Location = new System.Drawing.Point(177, 13);
             this.dateCheckin.Name = "dateCheckin";
             this.dateCheckin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -578,7 +578,7 @@
             // 
             // txtGioCheckout
             // 
-            this.txtGioCheckout.Location = new System.Drawing.Point(467, 88);
+            this.txtGioCheckout.Location = new System.Drawing.Point(482, 88);
             this.txtGioCheckout.Name = "txtGioCheckout";
             this.txtGioCheckout.Properties.Mask.EditMask = "t";
             this.txtGioCheckout.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
@@ -596,7 +596,7 @@
             // dateEditCheckout
             // 
             this.dateEditCheckout.EditValue = new System.DateTime(2019, 11, 28, 9, 19, 18, 605);
-            this.dateEditCheckout.Location = new System.Drawing.Point(467, 60);
+            this.dateEditCheckout.Location = new System.Drawing.Point(482, 60);
             this.dateEditCheckout.Name = "dateEditCheckout";
             this.dateEditCheckout.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -611,13 +611,13 @@
             this.labelControl17.Appearance.Options.UseFont = true;
             this.labelControl17.Location = new System.Drawing.Point(369, 61);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(91, 18);
+            this.labelControl17.Size = new System.Drawing.Size(102, 18);
             this.labelControl17.TabIndex = 36;
-            this.labelControl17.Text = "Ngày check-in";
+            this.labelControl17.Text = "Ngày check-out";
             // 
             // txtGioCheckin
             // 
-            this.txtGioCheckin.Location = new System.Drawing.Point(467, 35);
+            this.txtGioCheckin.Location = new System.Drawing.Point(482, 35);
             this.txtGioCheckin.Name = "txtGioCheckin";
             this.txtGioCheckin.Properties.Mask.EditMask = "t";
             this.txtGioCheckin.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
@@ -635,7 +635,7 @@
             // dateEditCheckin
             // 
             this.dateEditCheckin.EditValue = new System.DateTime(2019, 11, 28, 9, 19, 18, 605);
-            this.dateEditCheckin.Location = new System.Drawing.Point(467, 7);
+            this.dateEditCheckin.Location = new System.Drawing.Point(482, 7);
             this.dateEditCheckin.Name = "dateEditCheckin";
             this.dateEditCheckin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2280,16 +2280,12 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.TextEdit txtTimeCheckout;
-        private DevExpress.XtraEditors.TextEdit txtTimeCheckin;
         private DevExpress.XtraEditors.TextEdit txtGiaphong;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit dateCheckout;
-        private DevExpress.XtraEditors.DateEdit dateCheckin;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraTab.XtraTabControl Imformation;
         private DevExpress.XtraTab.XtraTabPage tabPhucvuphong;
@@ -2460,5 +2456,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colMaStatus;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit dateDenngay;
+        public DevExpress.XtraEditors.TextEdit txtTimeCheckout;
+        public DevExpress.XtraEditors.TextEdit txtTimeCheckin;
+        public DevExpress.XtraEditors.DateEdit dateCheckout;
+        public DevExpress.XtraEditors.DateEdit dateCheckin;
     }
 }

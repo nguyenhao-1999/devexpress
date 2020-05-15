@@ -372,7 +372,7 @@ namespace devexpress.View
                 khach.Phone = "";
                 khach.SoATM = 0;
                 khach.GhiChu = "";
-                //db.DK_Customers.Add(khachhang);
+                db.DK_Customers.Add(khachhang);
                 if (otp == 1)
                 {
                     KhachHangBUS.Instance.NewKhachHang(khach);
@@ -388,6 +388,7 @@ namespace devexpress.View
                     GetData data = new GetData(sodophong.PostData);
                     data(list);
                     otp = 0;
+                    btnDelete.Enabled = true;
 
                 }
                 else

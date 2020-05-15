@@ -53,6 +53,7 @@
             this.tlBoPhan = new DevExpress.XtraTreeList.TreeList();
             this.colTenNhom = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colId = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcQuanTriNguoiDung)).BeginInit();
@@ -61,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNgaysinh.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBoPhan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -156,7 +158,8 @@
             this.gcQuanTriNguoiDung.MainView = this.gvQuantri;
             this.gcQuanTriNguoiDung.Name = "gcQuanTriNguoiDung";
             this.gcQuanTriNguoiDung.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.deNgaysinh});
+            this.deNgaysinh,
+            this.repositoryItemTextEdit1});
             this.gcQuanTriNguoiDung.Size = new System.Drawing.Size(990, 615);
             this.gcQuanTriNguoiDung.TabIndex = 12;
             this.gcQuanTriNguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -264,7 +267,7 @@
             // grcMatKhau
             // 
             this.grcMatKhau.Caption = "Mật khẩu";
-            this.grcMatKhau.FieldName = "Password";
+            this.grcMatKhau.ColumnEdit = this.repositoryItemTextEdit1;
             this.grcMatKhau.Name = "grcMatKhau";
             this.grcMatKhau.OptionsColumn.AllowEdit = false;
             this.grcMatKhau.OptionsColumn.ReadOnly = true;
@@ -308,6 +311,12 @@
             this.colId.Name = "colId";
             this.colId.Width = 20;
             // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.repositoryItemTextEdit1.NullText = "**************";
+            // 
             // QuanTriNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -328,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNgaysinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBoPhan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,5 +367,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit deNgaysinh;
         public DevExpress.XtraGrid.Views.Grid.GridView gvQuantri;
         private DevExpress.XtraGrid.Columns.GridColumn grcMatKhau;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
     }
 }

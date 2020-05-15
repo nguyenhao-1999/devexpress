@@ -21,7 +21,7 @@ namespace devexpress
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new FormDangNhap());
+            Application.Run(new Form1());
         }
     }
 }

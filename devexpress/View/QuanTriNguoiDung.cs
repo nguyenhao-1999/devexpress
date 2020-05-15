@@ -25,12 +25,12 @@ namespace devexpress.View
         }
         QLKSDbContext db = new QLKSDbContext();
         List<NhanVien> lstNV = new List<NhanVien>();
+        public delegate void NameNhanVien(string hoten);
+        public event NameNhanVien NameNhanVienEvent;
         private void QuanTriNguoiDung_Load(object sender, EventArgs e)
         {
             var lstbp = db.BoPhan.OrderBy(m => m.STT).ToList();
             CreateTreeList(lstbp);
-            var listnv = db.NhanVien.OrderBy(m => m.Id).ToList();
-            lstNV = listnv;
             foreach(var item in lstNV)
             {
                 NhanVien nv = new NhanVien();
@@ -83,6 +83,8 @@ namespace devexpress.View
             TreeList tree = sender as TreeList;
             if (e.Node == tree.FocusedNode)
             {
+                var listnv = db.NhanVien.OrderBy(m => m.Id).ToList();
+                lstNV = listnv;
                 if (e.CellText != "Bộ phận tổ chức")
                 {
                     gcQuanTriNguoiDung.BeginUpdate();
@@ -135,6 +137,7 @@ namespace devexpress.View
             n = tlBoPhan.FindNodeByFieldValue("name", value);
         }
         List<NhanVien> lstNhanvien = new List<NhanVien>();
+        public int iddn;
         private void btnLuu_Click(object sender, EventArgs e)
         {
             for(int i=0;i<gvQuantri.RowCount;i++)
@@ -156,10 +159,10 @@ namespace devexpress.View
                     }
                 }
                 db.SaveChanges();
-                Form1 f = new Form1();
-                if (Convert.ToInt32(f.txtIdNhanvien.EditValue) == id)
+                if(NameNhanVienEvent!=null)
                 {
-                    f.txtUserName.EditValue = editnv.HoTen;
+                    var idnv = db.NhanVien.FirstOrDefault(m => m.Id == iddn);
+                    NameNhanVienEvent(idnv.HoTen);
                 }
             }
             MessageBox.Show("Lưu thành công!", "Success",
@@ -188,8 +191,8 @@ namespace devexpress.View
                 }
                 var delnv = db.NhanVien.FirstOrDefault(m => m.Id == id);
                 db.NhanVien.Remove(delnv);
-                gvQuantri.DeleteRow(gvQuantri.FocusedRowHandle);
                 db.SaveChanges();
+                gvQuantri.DeleteRow(gvQuantri.FocusedRowHandle);
                 MessageBox.Show("Xóa thành công!", "Success",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -263,16 +266,16 @@ namespace devexpress.View
             
             for (int i=0;i<gvQuantri.RowCount;i++)
             {
-                var id = Convert.ToInt32(gvQuantri.GetRowCellValue(i, gvQuantri.Columns[0]));
-                var editnv = db.NhanVien.FirstOrDefault(m => m.Id == id);
-                if(editnv.DiaChi==null)
-                {
-                    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
-                }
-                if(gvQuantri.GetRowCellValue(i,gvQuantri.Columns[3]).ToString()==null)
-                {
-                    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
-                }
+                //var id = Convert.ToInt32(gvQuantri.GetRowCellValue(i, gvQuantri.Columns[0]));
+                //var editnv = db.NhanVien.FirstOrDefault(m => m.Id == id);
+                //if(editnv.DiaChi==null)
+                //{
+                //    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
+                //}
+                //if(gvQuantri.GetRowCellValue(i,gvQuantri.Columns[3]).ToString()==null)
+                //{
+                //    gvQuantri.SetRowCellValue(i, gvQuantri.Columns[5], "");
+                //}
             }
         }
         private void gvQuantri_RowCellClick(object sender, RowCellClickEventArgs e)
